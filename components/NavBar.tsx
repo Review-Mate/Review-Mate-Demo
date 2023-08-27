@@ -6,7 +6,7 @@ type Props = {};
 
 export default function NavBar({}: Props) {
   return (
-    <nav className='h-[70px] flex items-center justify-between'>
+    <nav className='h-[70px] flex items-center justify-between mb-12'>
       <Link href='/'>
         <Image src='/logo.svg' alt='로고' width={115} height={40} />
       </Link>
