@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 
 type Props = {};
 
-export default function Detail({}: Props) {
+export default function Product({}: Props) {
   const iframeRef = React.useRef<HTMLIFrameElement | null>(null);
 
   React.useEffect(() => {
@@ -37,7 +37,7 @@ export default function Detail({}: Props) {
 
   return (
     <div className='h-full'>
-      <Seo title='ReviewMate | Home' />
+      <Seo title='ReviewMate | Product Demo' />
       <TopInfo />
       <Rooms />
       <iframe
