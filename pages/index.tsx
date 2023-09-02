@@ -20,14 +20,9 @@ export default function Home() {
         link='/demo/product'
       />
       <LinkBox
-        title='리뷰목록위젯'
-        content='리뷰 목록 위젯 체험하기'
-        link='https://main.d33vkfpm9flfhs.amplifyapp.com/review/list'
-      />
-      <LinkBox
-        title='리뷰작성위젯'
-        content='리뷰 작성 위젯 체험하기'
-        link='https://main.d33vkfpm9flfhs.amplifyapp.com/review/write'
+        title='리뷰작성페이지'
+        content='리뷰 목록 위젯이 삽입된 리뷰작성페이지 체험하기'
+        link='/demo/review/write'
       />
     </main>
   );
