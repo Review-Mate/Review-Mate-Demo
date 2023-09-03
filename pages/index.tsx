@@ -25,7 +25,7 @@ export default function Home() {
         link='/demo/review/write'
       />
     </main>
-  );
+  )
 }
 
 interface LinkBoxProps {
