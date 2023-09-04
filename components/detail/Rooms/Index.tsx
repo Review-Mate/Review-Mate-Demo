@@ -1,6 +1,7 @@
 import { options } from '@/data/detail/roomData';
 import Image from 'next/image';
 import React from 'react';
+import room from '@/public/images/room.png';
 
 type Props = {};
 
@@ -19,13 +20,14 @@ export default function Rooms({}: Props) {
 const Room = () => {
   return (
     <React.Fragment>
-      <div className='flex'>
+      <div className='flex relative'>
         <Image
-          src='/room.png'
+          src={room}
           alt='객실'
-          className='w-[25%]'
+          placeholder='blur'
           width={250}
           height={180}
+          objectFit='contain'
         />
         <div className='flex flex-1 flex-col ml-5'>
           <div className='text-subTitle font-mid mb-2'>스탠다드 더블룸</div>

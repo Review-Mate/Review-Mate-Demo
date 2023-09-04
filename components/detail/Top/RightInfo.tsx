@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import React from 'react';
+import map from '/public/images/map.svg';
+import checkin from '/public/images/checkin.svg';
 
 export default function RightInfo() {
   return (
     <div>
       <div className='flex flex-col justify-end h-full'>
         <div className='flex items-center text-body2 font-bold mb-2.5'>
-          <img src='/map.svg' alt='위치' className='m-1' />
+          <Image src={map} alt='위치' className='m-1' />
           위치
         </div>
         <div className='flex mb-7'>
@@ -14,7 +16,7 @@ export default function RightInfo() {
           50 Bạch Đằng, Hải Châu 1, Hải Châu, Đà Nẵng
         </div>
         <div className='flex items-center text-body2 font-bold mb-2.5'>
-          <img src='/checkin.svg' alt='체크인/체크아웃' className='m-1' />
+          <Image src={checkin} alt='체크인/체크아웃' className='m-1' />
           체크인/체크아웃
         </div>
         <ul className='list-disc list-inside mb-7'>

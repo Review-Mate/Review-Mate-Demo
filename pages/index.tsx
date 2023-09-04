@@ -1,6 +1,7 @@
 import Seo from '@/components/Seo';
 import Image from 'next/image';
 import Link from 'next/link';
+import arrow from '@/public/images/arrow.svg';
 
 export default function Home() {
   return (
@@ -44,7 +45,7 @@ const LinkBox = ({ title, content, link }: LinkBoxProps) => {
         <p className='text-body font-bold text-white mb-[2px]'>{title}</p>
         <p className='text-body text-white'>{content}</p>
       </div>
-      <Image src='/arrow.svg' alt='화살표' width={27} height={27} />
+      <Image src={arrow} alt='화살표' width={27} height={27} />
     </Link>
   );
 };

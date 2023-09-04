@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import LeftInfo from './LeftInfo';
 import RightInfo from './RightInfo';
+import star from '@/public/images/star.png';
+import heart from '@/public/images/heart.svg';
 
 export default function TopInfo() {
   return (
@@ -10,7 +12,7 @@ export default function TopInfo() {
       <div className={'flex flex-row items-center mb-5'}>
         <Image
           className='mr-[5px]'
-          src={'/star.png'}
+          src={star}
           alt='rating'
           width={15}
           height={15}
@@ -27,7 +29,7 @@ export default function TopInfo() {
         <div className='flex justify-between'>
           <div className='flex'>
             <div className='flex justify-center items-center mr-2.5 w-[50px] h-[50px] bg-gray07 rounded'>
-              <img src='/heart.svg' width={24} />
+              <Image src={heart} alt='찜하기' width={24} />
             </div>
             <div className='flex justify-center items-center w-[143px] h-[50px] bg-black text-white rounded'>
               객실선택
