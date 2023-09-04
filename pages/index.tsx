@@ -5,7 +5,7 @@ import arrow from '@/public/images/arrow.svg';
 
 export default function Home() {
   return (
-    <main className='h-full'>
+    <main>
       <Seo title='ReviewMate|Home' />
       <h1 className='text-5xl font-bold mb-5 w-[520px]'>여행사의</h1>
       <h1 className='text-5xl font-bold mb-10 w-[520px]'>
@@ -26,7 +26,7 @@ export default function Home() {
         link='/demo/review/write'
       />
     </main>
-  )
+  );
 }
 
 interface LinkBoxProps {

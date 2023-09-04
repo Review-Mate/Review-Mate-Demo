@@ -26,7 +26,7 @@ export default function TopInfo() {
       </div>
       <div className='grid grid-cols-2 gap-4'>
         <div />
-        <div className='flex justify-between'>
+        <div className='flex flex-col md:flex-row justify-between'>
           <div className='flex'>
             <div className='flex justify-center items-center mr-2.5 w-[50px] h-[50px] bg-gray07 rounded'>
               <Image src={heart} alt='찜하기' width={24} />
