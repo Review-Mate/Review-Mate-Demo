@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import hotel1 from '/public/images/hotel1.png';
 
 type Props = {};
 
@@ -8,7 +9,7 @@ export default function WritePageTopInfo({}: Props) {
     <div>
       <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
       <div className='flex flex-row'>
-        <Image src='/hotel1.png' alt='상품 사진' width={250} height={180} />
+        <Image src={hotel1} alt='상품 사진' width={250} height={180} />
         <div className='flex flex-col justify-between ml-5 py-2'>
           <div>
             <p className='text-body1 font-bold mb-2.5'>
