@@ -23,7 +23,7 @@ export default function Home() {
       <LinkBox
         title='리뷰작성페이지'
         content='리뷰 목록 위젯이 삽입된 리뷰작성페이지 체험하기'
-        link='/demo/review/write'
+        link='/demo/purchase'
       />
     </main>
   );
