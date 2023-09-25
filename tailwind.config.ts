@@ -53,6 +53,20 @@ const config: Config = {
         num3: '1.25rem',
         num4: '0.875rem',
       },
+      keyframes: {
+        appear: {
+          '0%': { opacity: '0', transform: 'translateY(50px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        appear1: 'appear 2s 0s ease-out forwards',
+        appear2: 'appear 2s 0.4s ease-out forwards',
+        appear3: 'appear 2s 0.6s ease-out forwards',
+        appear4: 'appear 2s 1.0s ease-out forwards',
+        appear5: 'appear 2s 1.4s ease-out forwards',
+        appear6: 'appear 2s 1.6s ease-out forwards',
+      },
     },
   },
   plugins: [],

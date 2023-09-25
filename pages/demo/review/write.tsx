@@ -12,6 +12,7 @@ export default function WritePage({}: Props) {
   return (
     <div>
       <Seo title='ReviewMate | 리뷰작성' />
+      <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
       <WritePageTopInfo />
       <iframe
         ref={iframeRef}
