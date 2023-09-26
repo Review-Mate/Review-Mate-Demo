@@ -2,8 +2,8 @@ import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN, REVIEW_MATE_URL } from '@/config/constant';
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
 import { reservationIdState } from 'state/reservationState';
 
 type Props = {};
@@ -12,11 +12,13 @@ type Props = {};
 // 상품 구매 페이지는 데모를 위해 임시로 만들어둔 페이지입니다.
 //
 export default function Purchase({}: Props) {
-  const setReservationId = useSetRecoilState(reservationIdState);
-
+  const router = useRouter();
   const onClick = async () => {
     const reservationId = await makeReservation();
-    setReservationId(reservationId);
+    router.push({
+      pathname: '/demo/beforeReview',
+      query: {reservationId},
+    });
   };
 
   return (
@@ -26,13 +28,12 @@ export default function Purchase({}: Props) {
       </h1>
       <div className='animate-appear2 opacity-0'>
         <WritePageTopInfo />
-        <Link
+        <button
           onClick={() => onClick()}
-          href='/demo/beforeReview'
           className='float-right bg-black text-white p-1 px-4 rounded mt-1 text-body1 animate-pulse'
         >
           구매하기
-        </Link>
+        </button>
       </div>
     </div>
   );

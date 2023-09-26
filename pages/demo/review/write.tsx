@@ -2,15 +2,16 @@ import Seo from '@/components/Seo';
 import WritePageTopInfo from '@/components/write/Top';
 import { WIDGET_API } from '@/config/api';
 import useMessageToChild from '@/hooks/useMessageToChild';
+import { useRouter } from 'next/router';
 import React from 'react';
-import { useRecoilValue } from 'recoil';
 import { reservationIdState } from 'state/reservationState';
 
 type Props = {};
 
 export default function WritePage({}: Props) {
   const { iframeRef } = useMessageToChild();
-  const reservationId = useRecoilValue(reservationIdState);
+  const router = useRouter();
+  const reservationId = router.query.reservationId;
 
   return (
     <div>

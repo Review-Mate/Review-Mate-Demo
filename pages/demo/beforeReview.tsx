@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 type Props = {};
 
 export default function BeforeReview({}: Props) {
+  const router = useRouter();
+  const reservationId = router.query;
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ export default function BeforeReview({}: Props) {
         상품의 리뷰를 남겨주세요!
       </h1>
       <Link
-        href='/demo/review/write'
+        href={{ pathname: '/demo/review/write', query: reservationId }}
         className='bg-black text-white mt-10 p-1 px-4 rounded mt-1 text-body1 opacity-0 animate-appear6'
       >
         리뷰작성
