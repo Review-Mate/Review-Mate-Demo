@@ -6,8 +6,7 @@ type Props = {};
 
 export default function WritePageTopInfo({}: Props) {
   return (
-    <div>
-      <div className='flex flex-row'>
+      <div className='flex flex-row pb-5'>
         <Image src={hotel1} alt='상품 사진' width={250} height={180} />
         <div className='flex flex-col justify-between ml-5 py-2'>
           <div>
@@ -25,6 +24,5 @@ export default function WritePageTopInfo({}: Props) {
           </p>
         </div>
       </div>
-    </div>
   );
 }

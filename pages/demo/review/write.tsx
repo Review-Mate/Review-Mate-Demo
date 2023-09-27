@@ -9,10 +9,9 @@ export default function WritePage() {
   const { iframeRef } = useMessageToChild();
   const router = useRouter();
   const reservationId = router.query.reservationId;
-  console.log('reservationId', reservationId);
 
   return (
-    <div>
+    <div className='pb-10'>
       <Seo title='ReviewMate | 리뷰작성' />
       <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
       <WritePageTopInfo />
