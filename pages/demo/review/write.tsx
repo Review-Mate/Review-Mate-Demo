@@ -4,14 +4,12 @@ import { WIDGET_API } from '@/config/api';
 import useMessageToChild from '@/hooks/useMessageToChild';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { reservationIdState } from 'state/reservationState';
 
-type Props = {};
-
-export default function WritePage({}: Props) {
+export default function WritePage() {
   const { iframeRef } = useMessageToChild();
   const router = useRouter();
   const reservationId = router.query.reservationId;
+  console.log('reservationId', reservationId);
 
   return (
     <div>

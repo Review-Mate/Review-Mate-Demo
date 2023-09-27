@@ -30,8 +30,11 @@ export default function Purchase({}: Props) {
     const token =
       phoneNum.substring(7, 11) + kakaoId.substring(0, 3) + date.getTime();
     localStorage.setItem('loginToken', token);
+    localStorage.setItem('name', name);
+    localStorage.setItem('phoneNum', phoneNum);
+    localStorage.setItem('kakaoId', kakaoId);
 
-    router.push('/demo/purchase');
+    router.push('/demo/beforeReview');
   };
 
   return (
