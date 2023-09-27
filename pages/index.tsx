@@ -2,8 +2,17 @@ import Seo from '@/components/Seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [loginToken, setLoginToken] = useState<string | null>('');
+
+  useEffect(() => {
+    const token = localStorage.getItem('loginToken');
+    setLoginToken(token);
+    console.log('token', token);
+  }, []);
+
   return (
     <main>
       <Seo title='ReviewMate|Home' />
@@ -23,7 +32,7 @@ export default function Home() {
       <LinkBox
         title='리뷰작성페이지'
         content='리뷰 목록 위젯이 삽입된 리뷰작성페이지 체험하기'
-        link='/demo/purchase'
+        link={loginToken ? 'demo/beforeReview' : '/demo/login'}
       />
     </main>
   );

@@ -15,14 +15,17 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
+a,
+a:hober {
   text-decoration: none;
 }
 
 #__next {
   height: 100%;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-black text-white p-2 px-5 rounded mt-1 text-body1;
+  }
 }
