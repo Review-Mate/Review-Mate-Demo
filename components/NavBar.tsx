@@ -12,18 +12,15 @@ export default function NavBar({}: Props) {
       <Link href='/'>
         <Image src={logo} alt='로고' width={115} height={40} />
       </Link>
-      <div className='w-2/4 flex gap-16'>
-        <div className='w-[45px]'>
-          <Link href='/detail'>숙박</Link>
+      <div className='w-3/5 flex gap-16'>
+        <div className='w-25'>
+          <Link href='/demo/product'>리뷰 목록 체험</Link>
         </div>
-        <div className='w-[45px]'>
-          <Link href='/detail'>랜터카</Link>
-        </div>
-        <div className='w-[45px]'>
-          <Link href='/detail'>식당</Link>
+        <div className='w-25'>
+          <Link href='/demo/beforeReview'>리뷰 작성 체험</Link>
         </div>
       </div>
-      <Link href='/mypage'>
+      <Link href='/'>
         <Image src={user} alt='마이페이지' width={28} height={28} />
       </Link>
     </nav>
