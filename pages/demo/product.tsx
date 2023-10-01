@@ -3,13 +3,13 @@ import Rooms from '@/components/detail/Rooms/Index';
 import TopInfo from '@/components/detail/Top/Index';
 import { WIDGET_API } from '@/config/api';
 import { PRODUCT_ID } from '@/config/constant';
-import useMessageToChild from '@/hooks/useMessageToChild';
+import useChildHeight from '@/hooks/useChildHeight';
 import React, { useEffect } from 'react';
 
 type Props = {};
 
 export default function Product({}: Props) {
-  const { iframeRef } = useMessageToChild();
+  const { iframeRef } = useChildHeight();
 
   return (
     <div className='h-full'>

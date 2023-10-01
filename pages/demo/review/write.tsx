@@ -1,14 +1,24 @@
 import Seo from '@/components/Seo';
 import WritePageTopInfo from '@/components/write/Top';
 import { WIDGET_API } from '@/config/api';
-import useMessageToChild from '@/hooks/useMessageToChild';
+import useChildHeight from '@/hooks/useChildHeight';
+import useChildMessage from '@/hooks/useChildMessage';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function WritePage() {
-  const { iframeRef } = useMessageToChild();
+  const { iframeRef } = useChildHeight();
+  const { message } = useChildMessage();
+
   const router = useRouter();
   const reservationId = router.query.reservationId;
+
+  useEffect(() => {
+    console.log(message);
+    if (message === 'success') {
+      router.push('/demo/product');
+    }
+  }, [message, router]);
 
   return (
     <div className='pb-10'>
