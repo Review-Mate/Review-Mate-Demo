@@ -39,15 +39,25 @@ interface TagBoxProps {
 
 const TagBox = ({ color, title }: TagBoxProps) => {
   const tags = ['청결', '위치', '서비스', '가격', '편의시설', '안전'];
+
+  const tagBasicStyle = 'py-1 px-2.5 bg-white rounded text-body3 font-mid';
+  const tagColorStyle =
+    color === 'blue'
+      ? `${tagBasicStyle} border border-blue text-blue`
+      : `${tagBasicStyle} border border-red text-red`;
+
+  const titleBasicStyle = 'mb-2.5 text-body1 font-bold';
+  const titleColorStyle =
+    color === 'blue'
+      ? `${titleBasicStyle} text-blue`
+      : `${titleBasicStyle} text-red`;
+
   return (
     <div className='flex flex-col justify-center p-5 mt-1 bg-gray08 rounded-[10px]'>
-      <div className={`mb-2.5 text-${color} text-body1 font-bold`}>{title}</div>
+      <div className={titleColorStyle}>{title}</div>
       <div className='flex flex-wrap gap-1'>
         {tags.map((tag, index) => (
-          <div
-            key={index}
-            className={`py-1 px-2.5 bg-white rounded border border-${color} text-body3 font-mid text-${color}`}
-          >
+          <div key={index} className={tagColorStyle}>
             {tag}
           </div>
         ))}
