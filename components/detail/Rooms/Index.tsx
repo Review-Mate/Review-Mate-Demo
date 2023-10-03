@@ -7,7 +7,7 @@ type Props = {};
 
 export default function Rooms({}: Props) {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col mt-20 mb-20'>
       <div className='text-body1 font-bold mb-6'>객실 종류 8개</div>
       <Room />
       <Room />
