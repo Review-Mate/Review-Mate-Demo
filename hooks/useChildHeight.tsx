@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function useMessageToChild(): {
+export default function useChildHeight(): {
   iframeRef: React.RefObject<HTMLIFrameElement>;
 } {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
