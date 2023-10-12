@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function useMessageToChild(): {
+export default function useChildHeight(): {
   iframeRef: React.RefObject<HTMLIFrameElement>;
 } {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
@@ -12,7 +12,6 @@ export default function useMessageToChild(): {
     const listener = (e: MessageEvent) => {
       if (!e.data.type) return;
       if (e.data.type === 'height') {
-        console.log('자식으로 부터 온 height', e.data.message);
         iframe.style.height = `${e.data.message}px`;
       }
     };

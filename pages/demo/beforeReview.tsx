@@ -51,7 +51,6 @@ export default function BeforeReview() {
       'singleTravelReservationCreateRequest',
       new Blob([JSON.stringify(data)], { type: 'application/json' })
     );
-    console.log('예약데이터', data);
 
     // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
     try {
@@ -59,14 +58,12 @@ export default function BeforeReview() {
         `${REVIEW_MATE_URL}/api/client/v1/${PARTNER_DOMAIN}/products/travel/single/reservations`,
         reservationData
       );
-      console.log('예약성공', response.data);
       router.push({
         pathname: `/demo/review/write`,
         query: { reservationId: reservationId },
       });
     } catch (error) {
       alert('예약에 실패했습니다. 다시 시도해주세요.');
-      console.log('예약실패', error);
     }
 
     return reservationId;

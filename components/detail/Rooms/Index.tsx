@@ -7,7 +7,7 @@ type Props = {};
 
 export default function Rooms({}: Props) {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col mt-20 mb-20'>
       <div className='text-body1 font-bold mb-6'>객실 종류 8개</div>
       <Room />
       <Room />
@@ -21,14 +21,16 @@ const Room = () => {
   return (
     <React.Fragment>
       <div className='flex flex-row'>
+        <div className='w-2/6 lg:w-1/5'>
         <Image
           src={room}
           alt='객실'
           placeholder='blur'
           width={250}
           height={180}
+          layout='responsive'
           objectFit='contain'
-        />
+        /></div>
         <div className='flex flex-1 flex-col ml-5'>
           <div className='text-subTitle font-mid mb-2'>스탠다드 더블룸</div>
           <div className='flex justify-between'>
@@ -48,7 +50,7 @@ const Room = () => {
               </ul>
             </div>
             <div className='flex flex-col md:flex-row items-center'>
-              <div className='flex mr-7'>
+              <div className='flex mr-7 mb-5 md:mb-0'>
                 <div className='text-num3 font-bold mr-1'>127,000</div>
                 <div className='text-num3 font-mid'>원</div>
               </div>
