@@ -12,11 +12,11 @@ export default function LeftInfo() {
   const hotelImgs = [hotel2, hotel3, hotel4, hotel5, hotel6, hotel7];
   return (
     <div>
-      <div className='grid grid-rows-5 grid-cols-6 gap-1'>
+      <div className='grid grid-cols-6 lg:grid-cols-6 gap-1 mb-7 md:mb-0'>
         <Image
-          className='w-full row-span-4 col-span-6'
+          className='w-full col-span-6 lg:col-span-6'
           src={hotel1}
-          alt='hotel1'
+          alt='호텔사진1'
           placeholder='blur'
           width={535}
           height={374}
@@ -25,9 +25,9 @@ export default function LeftInfo() {
         {hotelImgs.map((hotel, index) => (
           <Image
             key={index}
-            className='w-full round-10 flex flex-1'
+            className='w-full col-span-1 rounded flex flex-1'
             src={hotel}
-            alt='hotel2'
+            alt={`호텔사진${index + 1}`}
             placeholder='blur'
             width={85}
             height={85}

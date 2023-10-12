@@ -10,18 +10,18 @@ export default function Home() {
   useEffect(() => {
     const token = localStorage.getItem('loginToken');
     setLoginToken(token);
-    console.log('token', token);
   }, []);
 
   return (
-    <main className='flex flex-col lg:flex-row justify-center lg:justify-between items-center pt-12'>
+    <main className='flex w-full flex-col lg:flex-row justify-center lg:justify-between items-center pt-12'>
       <Seo title='ReviewMate|Home' />
-      <div className='flex flex-col items-center lg:items-start lg:w-1/2 animate-appear1 w-auto mb-10 lg:mb-0'>
-        <h1 className='text-5xl font-bold mb-5 inline-block'>여행사의</h1>
-        <h1 className='text-5xl font-bold mb-10 inline-block'>
-          구매 전환율 상승 파트너
-        </h1>
-        <h3 className='text-body1 mb-14 w-1/2 inline-block'>
+      <div className='flex flex-col items-center lg:items-start w-auto lg:w-1/2 animate-appear1 mb-10 lg:mb-0'>
+        <h1 className='text-5xl font-bold mb-5'>여행사의</h1>
+        <div className='flex flex-wrap justify-center lg:justify-start'>
+          <h1 className='text-5xl font-bold mb-5'>구매 전환율 상승</h1>
+          <h1 className='text-5xl font-bold mb-10'>파트너</h1>
+        </div>
+        <h3 className='text-body1 mb-14 w-[300px] text-center lg:text-start'>
           리뷰메이트는 고객의 리뷰를 통해 여행 상품의 구매 전환율을 상승시키는
           리뷰 통합 관리 플랫폼입니다.
         </h3>
@@ -37,7 +37,7 @@ export default function Home() {
           colorBlue={false}
         />
       </div>
-      <div className='w-[550px] animate-appear1 flex justify-end pb-10 lg:pb-0'>
+      <div className='w-full md:w-[550px] animate-appear1 flex justify-center lg:justify-end pb-10 lg:pb-0'>
         <Image
           src='/images/landing.png'
           alt='리뷰메이트 소개 이미지'

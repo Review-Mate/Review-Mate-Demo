@@ -20,18 +20,18 @@ export default function TopInfo() {
         <div className='mr-[10px] font-bold'>5.0</div>
         <div className='text-gray02'>1성급</div>
       </div>
-      <div className='grid grid-cols-2 gap-4 mb-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         <LeftInfo />
         <RightInfo />
       </div>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         <div />
-        <div className='flex flex-col md:flex-row justify-between'>
+        <div className='flex flex-row justify-between'>
           <div className='flex'>
             <div className='flex justify-center items-center mr-2.5 w-[50px] h-[50px] bg-gray07 rounded'>
               <Image src={heart} alt='찜하기' width={24} />
             </div>
-            <div className='flex justify-center items-center w-[143px] h-[50px] bg-black text-white rounded'>
+            <div className='flex justify-center items-center mr-2.5 w-[143px] h-[50px] bg-black text-white rounded'>
               객실선택
             </div>
           </div>
