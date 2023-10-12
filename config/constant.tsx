@@ -6,3 +6,7 @@ export const PARTNER_DOMAIN = process.env.NEXT_PUBLIC_PARTNER_DOMAIN;
 
 // 데모를 위한 리뷰메이트 서비스 API URL
 export const REVIEW_MATE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+// 리뷰메이트 위젯  URL
+export const WIDGET_URL = process.env.NEXT_PUBLIC_WIDGET_URL;
+
