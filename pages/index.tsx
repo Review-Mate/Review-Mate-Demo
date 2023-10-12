@@ -10,7 +10,6 @@ export default function Home() {
   useEffect(() => {
     const token = localStorage.getItem('loginToken');
     setLoginToken(token);
-    console.log('token', token);
   }, []);
 
   return (

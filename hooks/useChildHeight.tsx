@@ -12,7 +12,6 @@ export default function useChildHeight(): {
     const listener = (e: MessageEvent) => {
       if (!e.data.type) return;
       if (e.data.type === 'height') {
-        console.log('자식으로 부터 온 height', e.data.message);
         iframe.style.height = `${e.data.message}px`;
       }
     };

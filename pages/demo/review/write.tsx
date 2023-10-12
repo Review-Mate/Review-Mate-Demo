@@ -1,6 +1,7 @@
 import Seo from '@/components/Seo';
 import WritePageTopInfo from '@/components/write/Top';
 import { WIDGET_API } from '@/config/api';
+import { PARTNER_DOMAIN } from '@/config/constant';
 import useChildHeight from '@/hooks/useChildHeight';
 import useChildMessage from '@/hooks/useChildMessage';
 import { useRouter } from 'next/router';
@@ -14,7 +15,6 @@ export default function WritePage() {
   const reservationId = router.query.reservationId;
 
   useEffect(() => {
-    console.log(message);
     if (message === 'success') {
       router.push('/demo/product');
     }
@@ -27,7 +27,7 @@ export default function WritePage() {
       <WritePageTopInfo />
       <iframe
         ref={iframeRef}
-        src={`${WIDGET_API}/review/write?reservation_id=${reservationId}`}
+        src={`${WIDGET_API}/review/write?partner_domain=${PARTNER_DOMAIN}&reservation_id=${reservationId}`}
         className='w-full'
       />
     </div>
