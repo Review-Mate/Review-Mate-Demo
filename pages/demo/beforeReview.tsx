@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN, REVIEW_MATE_URL } from '@/config/constant';
 import axios from 'axios';
@@ -71,6 +72,7 @@ export default function BeforeReview() {
 
   return (
     <div className='flex flex-col items-center pt-8'>
+      <Seo title='ReviewMate | Reservation' />
       {loading && (
         <>
           <p className='text-body1  mb-4'>상품 예약 중..</p>

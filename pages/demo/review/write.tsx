@@ -22,7 +22,7 @@ export default function WritePage() {
 
   return (
     <div className='pb-10'>
-      <Seo title='ReviewMate | 리뷰작성' />
+      <Seo title='ReviewMate | Write Demo' />
       <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
       <WritePageTopInfo />
       <iframe
