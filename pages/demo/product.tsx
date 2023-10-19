@@ -1,10 +1,9 @@
 import Seo from '@/components/Seo';
 import Rooms from '@/components/detail/Rooms/Index';
 import TopInfo from '@/components/detail/Top/Index';
-import { WIDGET_API } from '@/config/api';
 import { PARTNER_DOMAIN, PRODUCT_ID } from '@/config/constant';
 import useChildHeight from '@/hooks/useChildHeight';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 type Props = {};
 
@@ -18,7 +17,7 @@ export default function Product({}: Props) {
       <Rooms />
       <iframe
         ref={iframeRef}
-        src={`${WIDGET_API}/review/list?partner_domain=${PARTNER_DOMAIN}&product_id=${PRODUCT_ID}`}
+        src={`${process.env.NEXT_PUBLIC_WIDGET_URL}/review/list?partner_domain=${PARTNER_DOMAIN}&product_id=${PRODUCT_ID}`}
         height='0'
         width='100%'
         name='review-mate-product-reviews'
