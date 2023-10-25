@@ -21,7 +21,6 @@ export default function Product({}: Props) {
         height='0'
         width='100%'
         name='review-mate-product-reviews'
-        className='w-full'
         scrolling='no'
       />
     </div>
