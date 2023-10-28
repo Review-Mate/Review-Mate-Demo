@@ -25,9 +25,10 @@ export default function WritePage() {
       <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
       <WritePageTopInfo />
       <iframe
+        name='review-mate-write-widget'
         ref={iframeRef}
         src={`${process.env.NEXT_PUBLIC_WIDGET_URL}/review/write?partner_domain=${PARTNER_DOMAIN}&reservation_id=${reservationId}`}
-        className='w-full'
+        width='100%'
       />
     </div>
   );

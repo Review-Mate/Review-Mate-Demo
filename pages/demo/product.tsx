@@ -16,12 +16,10 @@ export default function Product({}: Props) {
       <TopInfo />
       <Rooms />
       <iframe
+        name='review-mate-list-widget'
         ref={iframeRef}
         src={`${process.env.NEXT_PUBLIC_WIDGET_URL}/review/list?partner_domain=${PARTNER_DOMAIN}&product_id=${PRODUCT_ID}`}
-        height='0'
         width='100%'
-        name='review-mate-product-reviews'
-        scrolling='no'
       />
     </div>
   );
