@@ -22,7 +22,7 @@ const config: Config = {
         primary: '#4397AA',
         red: '#EF6961',
         blue: '#4AA4B9',
-        lightBlue: '#009AAD',
+        lightBlue: '#00A7BD',
         gray01: '#666666',
         gray02: '#999999',
         gray03: '#BFBFBF',
