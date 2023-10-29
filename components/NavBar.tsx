@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import logo from '@/public/images/logo.svg';
 import user from '@/public/images/user.svg';
+import { signIn } from 'next-auth/react';
 
 export default function NavBar() {
   return (
@@ -18,9 +19,7 @@ export default function NavBar() {
           <Link href='/demo/beforeReview'>리뷰 작성 체험</Link>
         </div>
       </div>
-      <Link href='/'>
-        <Image src={user} alt='마이페이지' width={28} height={28} />
-      </Link>
+      <button onClick={() => signIn()}>로그인</button>
     </nav>
   );
 }
