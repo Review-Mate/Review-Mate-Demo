@@ -4,11 +4,12 @@ import LeftInfo from './LeftInfo';
 import RightInfo from './RightInfo';
 import star from '@/public/images/star.png';
 import heart from '@/public/images/heart.svg';
+import { hotelInfo } from '@/data/detail/hotelData';
 
 export default function TopInfo() {
   return (
     <div>
-      <h1 className='text-title font-bold mb-1'>힐튼호텔 다낭</h1>
+      <h1 className='text-title font-bold mb-1'>{hotelInfo.name}</h1>
       <div className={'flex flex-row items-center mb-5'}>
         <Image
           className='mr-[5px]'
@@ -18,7 +19,7 @@ export default function TopInfo() {
           height={15}
         />
         <div className='mr-[10px] font-bold'>5.0</div>
-        <div className='text-gray02'>1성급</div>
+        <div className='text-gray02'>{hotelInfo.grade}</div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         <LeftInfo />
@@ -36,8 +37,8 @@ export default function TopInfo() {
             </div>
           </div>
           <div className='flex'>
-            <div className='text-num1 font-bold mr-1'>127,000</div>
-            <div className='text-num1 font-bold'>원</div>
+            <div className='text-num1 font-bold mr-1'>{hotelInfo.price}</div>
+            <div className='text-num1 font-bold'>원 ~</div>
           </div>
         </div>
       </div>

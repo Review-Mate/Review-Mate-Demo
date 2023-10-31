@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import map from '/public/images/map.svg';
 import checkin from '/public/images/checkin.svg';
+import { hotelInfo } from '@/data/detail/hotelData';
 
 export default function RightInfo() {
   return (
@@ -13,15 +14,15 @@ export default function RightInfo() {
         </div>
         <div className='flex mb-7'>
           <div className='w-[5%] m-1' />
-          50 Bạch Đằng, Hải Châu 1, Hải Châu, Đà Nẵng
+          {hotelInfo.address}
         </div>
         <div className='flex items-center text-body2 font-bold mb-2.5'>
           <Image src={checkin} alt='체크인/체크아웃' className='m-1' />
           체크인/체크아웃
         </div>
         <ul className='list-disc list-inside mb-7'>
-          <li className='ml-[28px]'>체크인 : 오후 3:00</li>
-          <li className='ml-[28px]'>체크아웃 : 오전 11:00</li>
+          <li className='ml-[28px]'>체크인 : {hotelInfo.checkin}</li>
+          <li className='ml-[28px]'>체크아웃 : {hotelInfo.checkout}</li>
         </ul>
         <div>
           <TagBox color='blue' title='긍정 태그' />
