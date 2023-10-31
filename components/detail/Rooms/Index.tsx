@@ -1,7 +1,8 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
+import { formatNumberWithCommas } from 'utils/globalUtils';
 
 type Props = {};
 
@@ -31,6 +32,7 @@ interface RoomProps {
 
 const Room = ({ name, image, price, options }: RoomProps) => {
   const router = useRouter();
+  const formatPrice = formatNumberWithCommas(price);
 
   const reservation = () => {
     const answer = confirm('예약화면으로 이동하시겠습니까?').valueOf();
@@ -50,6 +52,7 @@ const Room = ({ name, image, price, options }: RoomProps) => {
             height={180}
             layout='responsive'
             objectFit='contain'
+            className='rounded-[10px]'
           />
         </div>
         <div className='flex flex-1 flex-col ml-5'>
@@ -72,7 +75,7 @@ const Room = ({ name, image, price, options }: RoomProps) => {
             </div>
             <div className='flex flex-col md:flex-row items-center'>
               <div className='flex mr-7 mb-5 md:mb-0'>
-                <div className='text-num3 font-bold mr-1'>{price}</div>
+                <div className='text-num3 font-bold mr-1'>{formatPrice}</div>
                 <div className='text-num3 font-mid'>원</div>
               </div>
               <div className='flex flex-col'>

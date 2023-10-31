@@ -5,6 +5,7 @@ import RightInfo from './RightInfo';
 import star from '@/public/images/star.png';
 import heart from '@/public/images/heart.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
+import { formatNumberWithCommas } from 'utils/globalUtils';
 
 export default function TopInfo() {
   return (
@@ -37,7 +38,9 @@ export default function TopInfo() {
             </div>
           </div>
           <div className='flex'>
-            <div className='text-num1 font-bold mr-1'>{hotelInfo.price}</div>
+            <div className='text-num1 font-bold mr-1'>
+              {formatNumberWithCommas(hotelInfo.price)}
+            </div>
             <div className='text-num1 font-bold'>원 ~</div>
           </div>
         </div>
