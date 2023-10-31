@@ -1,13 +1,22 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import LeftInfo from './LeftInfo';
 import RightInfo from './RightInfo';
 import star from '@/public/images/star.png';
-import heart from '@/public/images/heart.svg';
+import heartIcon from '@/public/images/heart.svg';
+import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
 import { formatNumberWithCommas } from 'utils/globalUtils';
+import { motion } from 'framer-motion';
+import { BlackButton } from './global/button';
 
 export default function TopInfo() {
+  const [heart, setHeart] = useState(false);
+
+  const heartClick = () => {
+    setHeart(!heart);
+  };
+
   return (
     <div>
       <h1 className='text-title font-bold mb-1'>{hotelInfo.name}</h1>
@@ -30,12 +39,22 @@ export default function TopInfo() {
         <div />
         <div className='flex flex-row justify-between'>
           <div className='flex'>
-            <div className='flex justify-center items-center mr-2.5 w-[50px] h-[50px] bg-gray07 rounded'>
-              <Image src={heart} alt='찜하기' width={24} />
-            </div>
-            <div className='flex justify-center items-center mr-2.5 w-[143px] h-[50px] bg-black text-white rounded'>
-              객실선택
-            </div>
+            <motion.button
+              onClick={heartClick}
+              className='flex justify-center items-center mr-2.5 w-[50px] h-[50px] bg-gray07 rounded'
+              whileTap={{ scale: 0.8 }}
+            >
+              {heart ? (
+                <Image src={heartFillIcon} alt='찜하기(찜한 상태)' width={24} />
+              ) : (
+                <Image
+                  src={heartIcon}
+                  alt='찜하기(찜하지 않은 상태)'
+                  width={24}
+                />
+              )}
+            </motion.button>
+            <BlackButton title='객실선택' />
           </div>
           <div className='flex'>
             <div className='text-num1 font-bold mr-1'>

@@ -1,4 +1,5 @@
 import Seo from '@/components/Seo';
+import { BlackButton } from '@/components/detail/Top/global/button';
 import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN, REVIEW_MATE_URL } from '@/config/constant';
 import axios from 'axios';
@@ -90,12 +91,11 @@ export default function BeforeReview() {
       </h1>
       <div className='animate-appear5 opacity-0'>
         <WritePageTopInfo />
-        <button
+        <BlackButton
+          title='리뷰작성'
           onClick={makeReservation}
           className='btn-primary float-right animate-pulse'
-        >
-          리뷰작성
-        </button>
+        />
       </div>
     </div>
   );

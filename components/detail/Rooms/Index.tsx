@@ -3,6 +3,7 @@ import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
 import { formatNumberWithCommas } from 'utils/globalUtils';
+import { BlackButton, WhiteButton } from '../Top/global/button';
 
 type Props = {};
 
@@ -79,18 +80,12 @@ const Room = ({ name, image, price, options }: RoomProps) => {
                 <div className='text-num3 font-mid'>원</div>
               </div>
               <div className='flex flex-col'>
-                <button
+                <WhiteButton
+                  className='mb-2.5'
                   onClick={() => alert('상품이 장바구니에 담겼습니다.')}
-                  className='flex justify-center items-center w-[143px] h-[50px] mb-1 border border-gray04 rounded font-mid'
-                >
-                  장바구니
-                </button>
-                <button
-                  onClick={reservation}
-                  className='flex justify-center items-center w-[143px] h-[50px] border border-gray04 rounded font-mid bg-black text-white'
-                >
-                  예약하기
-                </button>
+                  title='장바구니'
+                />
+                <BlackButton onClick={reservation} title='예약하기' />
               </div>
             </div>
           </div>
