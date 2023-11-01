@@ -86,9 +86,10 @@ export default function BeforeReview() {
           />
         </>
       )}
-      <h1 className='text-heading mt-3 mb-16 font-bold animate-appear4 opacity-0'>
+      <h1 className='text-title sm:text-heading mt-3 mb-16 font-bold animate-appear4 opacity-0'>
         구매하신 상품의 리뷰를 남겨주세요!
       </h1>
+
       <div className='animate-appear5 opacity-0'>
         <WritePageTopInfo />
         <BlackButton

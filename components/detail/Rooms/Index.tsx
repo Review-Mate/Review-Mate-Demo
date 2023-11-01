@@ -43,21 +43,21 @@ const Room = ({ name, image, price, options }: RoomProps) => {
 
   return (
     <React.Fragment>
-      <div className='flex flex-row'>
-        <div className='w-2/6 lg:w-1/5'>
+      <div className='flex flex-col sm:flex-row'>
+        <div className='w-full sm:w-2/6 lg:w-1/5'>
           <Image
             src={image}
             alt='객실'
-            // placeholder='blur'
+            placeholder='blur'
             width={250}
             height={180}
-            layout='responsive'
-            objectFit='contain'
             className='rounded-[10px]'
           />
         </div>
         <div className='flex flex-1 flex-col ml-5'>
-          <div className='text-subTitle font-mid mb-2'>{name}</div>
+          <div className='text-subTitle font-mid mb-2 mt-2 sm:mt-0'>
+            {name}
+          </div>
           <div className='flex justify-between'>
             <div className='flex flex-col items-start'>
               <div className='w-[94px] flex justify-center items-center text-body3 bg-lightBlue/20 text-lightBlue mb-8 rounded'>
@@ -74,7 +74,7 @@ const Room = ({ name, image, price, options }: RoomProps) => {
                 ))}
               </ul>
             </div>
-            <div className='flex flex-col md:flex-row items-center'>
+            <div className='flex flex-col md:flex-row items-center justify-end'>
               <div className='flex mr-7 mb-5 md:mb-0'>
                 <div className='text-num3 font-bold mr-1'>{formatPrice}</div>
                 <div className='text-num3 font-mid'>원</div>
