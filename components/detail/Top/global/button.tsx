@@ -17,7 +17,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <motion.button
-      className={`${className} flex justify-center items-center mr-2.5 rounded font-mid`}
+      className={`${className} flex justify-center items-center mr-2.5 rounded font-mid hover:opacity-80`}
       onClick={onClick}
       whileTap={{ opacity: 0.5 }}
       style={{ width: width, height: height }}
@@ -40,7 +40,7 @@ export const WhiteButton = ({
       onClick={onClick}
       width={width}
       height={height}
-      className={`${className} border border-gray04 bg-white text-black`}
+      className={`${className} border border-gray04 bg-white text-black hover:bg-gray-50`}
     />
   );
 };

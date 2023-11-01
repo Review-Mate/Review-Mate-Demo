@@ -1,15 +1,20 @@
 import Seo from '@/components/Seo';
 import { BlackButton } from '@/components/detail/Top/global/button';
 import WritePageTopInfo from '@/components/write/Top';
-import { PARTNER_DOMAIN, REVIEW_MATE_URL } from '@/config/constant';
+import { PARTNER_DOMAIN } from '@/config/constant';
 import { createReservation } from 'api/reservationApi';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
+import { loginCheck } from 'utils/loginCheck';
 
 export default function BeforeReview() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loginCheck();
+  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,7 +35,7 @@ export default function BeforeReview() {
     );
 
     // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
-    const response = await createReservation(reservationData);
+    await createReservation(reservationData);
 
     router.push({
       pathname: `/demo/review/write`,

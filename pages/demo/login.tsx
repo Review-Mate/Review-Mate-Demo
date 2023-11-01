@@ -1,6 +1,6 @@
 import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type Props = {};
 
@@ -48,14 +48,15 @@ export default function Purchase({}: Props) {
         onSubmit={handleSubmit}
         className='border rounded-t-3xl pt-11 p-7 w-3/4'
       >
-        <Input label='이름' value={name} setValue={setName} />
+        <Input label='이름' value={name} setValue={setName} placeholder='여행러버'/>
         <Input
           label='휴대전화'
           value={phoneNum}
           setValue={setPhoneNum}
           type='tel'
+          placeholder='01012345678'
         />
-        <Input label='카카오 아이디' value={kakaoId} setValue={setKakaoId} />
+        <Input label='카카오 아이디' value={kakaoId} setValue={setKakaoId} placeholder='카카오 아이디'/>
         <button type='submit' className='btn-primary mt-7 float-right'>
           로그인
         </button>
@@ -69,9 +70,16 @@ interface InputProps {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   type?: string;
+  placeholder?: string;
 }
 
-const Input = ({ label, value, setValue, type = 'text' }: InputProps) => {
+const Input = ({
+  label,
+  value,
+  setValue,
+  type = 'text',
+  placeholder,
+}: InputProps) => {
   return (
     <div className='flex flex-col mb-6'>
       <label className='text-body2 mb-3' htmlFor={label}>
@@ -83,6 +91,7 @@ const Input = ({ label, value, setValue, type = 'text' }: InputProps) => {
         id={label}
         value={value}
         onChange={(event) => setValue(event.target.value)}
+        placeholder={placeholder}
       />
     </div>
   );

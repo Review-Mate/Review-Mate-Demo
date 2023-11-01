@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
-import { formatNumberWithCommas } from 'utils/globalUtils';
+import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { BlackButton, WhiteButton } from '../Top/global/button';
 
 type Props = {};
@@ -26,7 +26,7 @@ export default function Rooms({}: Props) {
 
 interface RoomProps {
   name: string;
-  image: string;
+  image: StaticImageData;
   price: number;
   options: string[];
 }
@@ -51,13 +51,11 @@ const Room = ({ name, image, price, options }: RoomProps) => {
             placeholder='blur'
             width={250}
             height={180}
-            className='rounded-[10px]'
+            className='rounded-[10px] hover:opacity-80'
           />
         </div>
         <div className='flex flex-1 flex-col ml-5'>
-          <div className='text-subTitle font-mid mb-2 mt-2 sm:mt-0'>
-            {name}
-          </div>
+          <div className='text-subTitle font-mid mb-2 mt-2 sm:mt-0'>{name}</div>
           <div className='flex justify-between'>
             <div className='flex flex-col items-start'>
               <div className='w-[94px] flex justify-center items-center text-body3 bg-lightBlue/20 text-lightBlue mb-8 rounded'>

@@ -6,7 +6,7 @@ import star from '@/public/images/star.png';
 import heartIcon from '@/public/images/heart.svg';
 import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
-import { formatNumberWithCommas } from 'utils/globalUtils';
+import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { motion } from 'framer-motion';
 import { BlackButton } from './global/button';
 import { fetchProductData } from 'api/reviewApi';
@@ -42,7 +42,9 @@ export default function TopInfo() {
           width={15}
           height={15}
         />
-        <div className='mr-[10px] font-bold'>{productData?.rating}</div>
+        <div className='mr-[10px] font-bold'>
+          {productData?.rating && Math.round(productData?.rating * 10) / 10}
+        </div>
         <div className='text-gray02'>{hotelInfo.grade}</div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
