@@ -2,10 +2,8 @@ import Seo from '@/components/Seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
-
   return (
     <main className='flex w-full flex-col lg:flex-row justify-center lg:justify-between items-center pt-12'>
       <Seo title='ReviewMate|Home' />
