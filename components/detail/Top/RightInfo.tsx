@@ -4,7 +4,17 @@ import map from '/public/images/map.svg';
 import checkin from '/public/images/checkin.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
 
-export default function RightInfo() {
+interface Tag {
+  category: string;
+  count: number;
+}
+
+interface Props {
+  positiveTags: Tag[];
+  negativeTags: Tag[];
+}
+
+export default function RightInfo({ positiveTags, negativeTags }: Props) {
   return (
     <div>
       <div className='flex flex-col justify-end h-full'>
@@ -25,8 +35,8 @@ export default function RightInfo() {
           <li className='ml-[28px]'>체크아웃 : {hotelInfo.checkout}</li>
         </ul>
         <div>
-          <TagBox color='blue' title='긍정 태그' />
-          <TagBox color='red' title='부정 태그' />
+          <TagBox tags={positiveTags} color='blue' title='긍정 태그' />
+          <TagBox tags={negativeTags} color='red' title='부정 태그' />
         </div>
       </div>
     </div>
@@ -34,13 +44,12 @@ export default function RightInfo() {
 }
 
 interface TagBoxProps {
+  tags: Tag[];
   color: string;
   title: string;
 }
 
-const TagBox = ({ color, title }: TagBoxProps) => {
-  const tags = ['청결', '위치', '서비스', '가격', '편의시설', '안전'];
-
+const TagBox = ({ tags, color, title }: TagBoxProps) => {
   return (
     <div className='flex flex-col justify-center p-5 mt-1 bg-gray08 rounded-[10px]'>
       <div
@@ -51,6 +60,11 @@ const TagBox = ({ color, title }: TagBoxProps) => {
         {title}
       </div>
       <div className='flex flex-wrap gap-1'>
+        {tags.length === 0 && (
+          <div className='text-caption text-gray01'>
+            태그가 존재하지 않습니다.
+          </div>
+        )}
         {tags.map((tag, index) => (
           <div
             key={index}
@@ -58,7 +72,7 @@ const TagBox = ({ color, title }: TagBoxProps) => {
               color === 'blue' ? 'border-blue text-blue' : 'border-red text-red'
             } border py-1 px-2.5 bg-white rounded text-body3 font-mid`}
           >
-            {tag}
+            {tag.category}
           </div>
         ))}
       </div>

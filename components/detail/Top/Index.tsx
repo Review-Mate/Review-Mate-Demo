@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LeftInfo from './LeftInfo';
 import RightInfo from './RightInfo';
 import star from '@/public/images/star.png';
@@ -9,13 +9,27 @@ import { hotelInfo } from '@/data/detail/hotelData';
 import { formatNumberWithCommas } from 'utils/globalUtils';
 import { motion } from 'framer-motion';
 import { BlackButton } from './global/button';
+import { fetchProductData } from 'api/reviewApi';
+import { productId } from '@/data/detail/productData';
+import { ProductDataType } from 'api/types/reviewTypes';
 
 export default function TopInfo() {
+  const [productData, setProductData] = useState<ProductDataType | null>(null);
   const [heart, setHeart] = useState(false);
 
   const heartClick = () => {
     setHeart(!heart);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetchProductData(productId); // userId를 원하는 값으로 수정
+      setProductData(data);
+      console.log(data);
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -28,12 +42,15 @@ export default function TopInfo() {
           width={15}
           height={15}
         />
-        <div className='mr-[10px] font-bold'>5.0</div>
+        <div className='mr-[10px] font-bold'>{productData?.rating}</div>
         <div className='text-gray02'>{hotelInfo.grade}</div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         <LeftInfo />
-        <RightInfo />
+        <RightInfo
+          positiveTags={productData?.positiveTags || []}
+          negativeTags={productData?.negativeTags || []}
+        />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         <div />
