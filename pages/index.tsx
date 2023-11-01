@@ -5,12 +5,6 @@ import arrow from '@/public/images/arrow.svg';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [loginToken, setLoginToken] = useState<string | null>('');
-
-  useEffect(() => {
-    const token = localStorage.getItem('loginToken');
-    setLoginToken(token);
-  }, []);
 
   return (
     <main className='flex w-full flex-col lg:flex-row justify-center lg:justify-between items-center pt-12'>
@@ -33,7 +27,7 @@ export default function Home() {
         <LinkBox
           title='리뷰 작성 위젯'
           content='리뷰 작성 페이지 체험하기'
-          link={loginToken ? 'demo/beforeReview' : '/demo/login'}
+          link='demo/beforeReview'
           colorBlue={false}
         />
       </div>
