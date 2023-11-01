@@ -42,7 +42,9 @@ export default function TopInfo() {
           width={15}
           height={15}
         />
-        <div className='mr-[10px] font-bold'>{productData?.rating}</div>
+        <div className='mr-[10px] font-bold'>
+          {productData?.rating && Math.round(productData?.rating * 10) / 10}
+        </div>
         <div className='text-gray02'>{hotelInfo.grade}</div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
