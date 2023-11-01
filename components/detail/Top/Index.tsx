@@ -6,7 +6,7 @@ import star from '@/public/images/star.png';
 import heartIcon from '@/public/images/heart.svg';
 import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
-import { formatNumberWithCommas } from 'utils/globalUtils';
+import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { motion } from 'framer-motion';
 import { BlackButton } from './global/button';
 import { fetchProductData } from 'api/reviewApi';

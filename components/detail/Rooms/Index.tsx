@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
-import { formatNumberWithCommas } from 'utils/globalUtils';
+import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { BlackButton, WhiteButton } from '../Top/global/button';
 
 type Props = {};
