@@ -20,19 +20,20 @@ export default function Rooms({}: Props) {
 const Room = () => {
   return (
     <React.Fragment>
-      <div className='flex flex-row'>
-        <div className='w-2/6 lg:w-1/5'>
-        <Image
-          src={room}
-          alt='객실'
-          placeholder='blur'
-          width={250}
-          height={180}
-          layout='responsive'
-          objectFit='contain'
-        /></div>
+      <div className='flex flex-col sm:flex-row'>
+        <div className='w-full sm:w-2/6 lg:w-1/5'>
+          <Image
+            src={room}
+            alt='객실'
+            placeholder='blur'
+            width={250}
+            height={180}
+          />
+        </div>
         <div className='flex flex-1 flex-col ml-5'>
-          <div className='text-subTitle font-mid mb-2'>스탠다드 더블룸</div>
+          <div className='text-subTitle font-mid mb-2 mt-2 sm:mt-0'>
+            스탠다드 더블룸
+          </div>
           <div className='flex justify-between'>
             <div className='flex flex-col items-start'>
               <div className='w-[94px] flex justify-center items-center text-body3 bg-lightBlue/20 text-lightBlue mb-8 rounded'>
@@ -49,7 +50,7 @@ const Room = () => {
                 ))}
               </ul>
             </div>
-            <div className='flex flex-col md:flex-row items-center'>
+            <div className='flex flex-col md:flex-row items-center justify-end'>
               <div className='flex mr-7 mb-5 md:mb-0'>
                 <div className='text-num3 font-bold mr-1'>127,000</div>
                 <div className='text-num3 font-mid'>원</div>

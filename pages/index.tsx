@@ -58,7 +58,7 @@ interface LinkBoxProps {
 
 const LinkBox = ({ title, content, link, colorBlue = true }: LinkBoxProps) => {
   const defaultClass =
-    'w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
+    'w-[370px] sm:w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
   const linkBox = colorBlue
     ? `${defaultClass} bg-lightBlue hover:bg-gradient-to-tr from-[#009AAD] to-[#00B0C7]`
     : `${defaultClass} bg-white border border-solid border-gray04 hover:bg-gradient-to-tr from-white to-[#f9f9f9]`;
