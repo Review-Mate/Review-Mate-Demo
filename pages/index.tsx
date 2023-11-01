@@ -21,10 +21,10 @@ export default function Home() {
           <h1 className='text-5xl font-bold mb-5'>구매 전환율 상승</h1>
           <h1 className='text-5xl font-bold mb-10'>파트너</h1>
         </div>
-        <h3 className='text-body1 mb-14 w-[300px] text-center lg:text-start'>
+        <h2 className='text-body1 mb-14 w-[300px] text-center lg:text-start'>
           리뷰메이트는 고객의 리뷰를 통해 여행 상품의 구매 전환율을 상승시키는
           리뷰 통합 관리 플랫폼입니다.
-        </h3>
+        </h2>
         <LinkBox
           title='리뷰 목록 위젯'
           content='상품 상세 페이지 체험하기'
@@ -58,10 +58,10 @@ interface LinkBoxProps {
 
 const LinkBox = ({ title, content, link, colorBlue = true }: LinkBoxProps) => {
   const defaultClass =
-    'w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 rounded-md';
+    'w-[370px] sm:w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
   const linkBox = colorBlue
-    ? `${defaultClass} bg-lightBlue text-white hover:bg-gradient-to-tr from-[#009AAD] to-[#00B0C7]`
-    : `${defaultClass} bg-white text-black border border-solid border-gray04 hover:bg-gradient-to-tr from-white to-[#f9f9f9]`;
+    ? `${defaultClass} bg-lightBlue hover:bg-gradient-to-tr from-[#009AAD] to-[#00B0C7]`
+    : `${defaultClass} bg-white border border-solid border-gray04 hover:bg-gradient-to-tr from-white to-[#f9f9f9]`;
 
   return (
     <Link href={link} className={linkBox}>

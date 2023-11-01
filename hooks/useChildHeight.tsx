@@ -18,13 +18,6 @@ export default function useChildHeight(): {
 
     window.addEventListener('message', listener);
 
-    if (iframe && iframe.contentWindow) {
-      iframe.contentWindow?.postMessage(
-        { type: 'loaded', message: 'on loaded!' },
-        '*'
-      );
-    }
-
     return () => {
       window.removeEventListener('message', listener);
     };

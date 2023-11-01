@@ -1,8 +1,9 @@
+import Seo from '@/components/Seo';
+import { BlackButton } from '@/components/detail/Top/global/button';
 import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN, REVIEW_MATE_URL } from '@/config/constant';
-import axios from 'axios';
+import { createReservation } from 'api/reservationApi';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -21,6 +22,25 @@ export default function BeforeReview() {
     const reservationId = getTempReservationId();
     const reservationData = new FormData();
 
+    const data = getReservationData(reservationId);
+
+    reservationData.append(
+      'singleTravelReservationCreateRequest',
+      new Blob([JSON.stringify(data)], { type: 'application/json' })
+    );
+
+    // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
+    const response = await createReservation(reservationData);
+
+    router.push({
+      pathname: `/demo/review/write`,
+      query: { reservationId: reservationId },
+    });
+
+    return reservationId;
+  };
+
+  const getReservationData = (reservationId: string) => {
     const token = localStorage.getItem('loginToken');
     const name = localStorage.getItem('name');
     const phoneNum = localStorage.getItem('phoneNum');
@@ -47,30 +67,13 @@ export default function BeforeReview() {
         partnerSellerId: 1,
       },
     };
-    reservationData.append(
-      'singleTravelReservationCreateRequest',
-      new Blob([JSON.stringify(data)], { type: 'application/json' })
-    );
 
-    // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
-    try {
-      const response = await axios.post(
-        `${REVIEW_MATE_URL}/api/client/v1/${PARTNER_DOMAIN}/products/travel/single/reservations`,
-        reservationData
-      );
-      router.push({
-        pathname: `/demo/review/write`,
-        query: { reservationId: reservationId },
-      });
-    } catch (error) {
-      alert('예약에 실패했습니다. 다시 시도해주세요.');
-    }
-
-    return reservationId;
+    return data;
   };
 
   return (
     <div className='flex flex-col items-center pt-8'>
+      <Seo title='ReviewMate | Reservation' />
       {loading && (
         <>
           <p className='text-body1  mb-4'>상품 예약 중..</p>
@@ -83,17 +86,17 @@ export default function BeforeReview() {
           />
         </>
       )}
-      <h1 className='text-heading mt-3 mb-16 font-bold animate-appear4 opacity-0'>
+      <h1 className='text-title sm:text-heading mt-3 mb-16 font-bold animate-appear4 opacity-0'>
         구매하신 상품의 리뷰를 남겨주세요!
       </h1>
+
       <div className='animate-appear5 opacity-0'>
         <WritePageTopInfo />
-        <button
+        <BlackButton
+          title='리뷰작성'
           onClick={makeReservation}
           className='btn-primary float-right animate-pulse'
-        >
-          리뷰작성
-        </button>
+        />
       </div>
     </div>
   );

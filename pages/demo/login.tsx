@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
@@ -39,6 +40,7 @@ export default function Purchase({}: Props) {
 
   return (
     <div className='flex flex-col items-center'>
+      <Seo title='ReviewMate | Login' />
       <h1 className='text-title font-bold mb-20 mt-11 animate-appear1 opacity-0'>
         리뷰 작성을 위해 간단한 정보를 입력해주세요
       </h1>

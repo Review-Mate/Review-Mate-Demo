@@ -1,0 +1,1 @@
+export const productId = 'PRODUCT-0001'
