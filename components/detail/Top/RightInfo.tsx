@@ -62,7 +62,7 @@ const TagBox = ({ tags, color, title }: TagBoxProps) => {
       <div className='flex flex-wrap gap-1'>
         {tags.length === 0 && (
           <div className='text-caption text-gray01'>
-            태그가 존재하지 않습니다.
+            리뷰가 아직 충분하지 않습니다 😵
           </div>
         )}
         {tags.map((tag, index) => (
