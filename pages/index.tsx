@@ -2,16 +2,8 @@ import Seo from '@/components/Seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [loginToken, setLoginToken] = useState<string | null>('');
-
-  useEffect(() => {
-    const token = localStorage.getItem('loginToken');
-    setLoginToken(token);
-  }, []);
-
   return (
     <main className='flex w-full flex-col lg:flex-row justify-center lg:justify-between items-center pt-12'>
       <Seo title='ReviewMate|Home' />
@@ -33,7 +25,7 @@ export default function Home() {
         <LinkBox
           title='리뷰 작성 위젯'
           content='리뷰 작성 페이지 체험하기'
-          link={loginToken ? 'demo/beforeReview' : '/demo/login'}
+          link='demo/beforeReview'
           colorBlue={false}
         />
       </div>
@@ -58,7 +50,7 @@ interface LinkBoxProps {
 
 const LinkBox = ({ title, content, link, colorBlue = true }: LinkBoxProps) => {
   const defaultClass =
-    'w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
+    'w-[370px] sm:w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
   const linkBox = colorBlue
     ? `${defaultClass} bg-lightBlue hover:bg-gradient-to-tr from-[#009AAD] to-[#00B0C7]`
     : `${defaultClass} bg-white border border-solid border-gray04 hover:bg-gradient-to-tr from-white to-[#f9f9f9]`;

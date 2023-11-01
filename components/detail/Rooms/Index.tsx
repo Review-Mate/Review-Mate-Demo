@@ -1,38 +1,61 @@
-import { options } from '@/data/detail/roomData';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
-import room from '@/public/images/room.png';
+import { roomList } from '@/data/detail/roomData';
+import { useRouter } from 'next/router';
+import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
+import { BlackButton, WhiteButton } from '../Top/global/button';
 
 type Props = {};
 
 export default function Rooms({}: Props) {
   return (
     <div className='flex flex-col mt-20 mb-20'>
-      <div className='text-body1 font-bold mb-6'>객실 종류 8개</div>
-      <Room />
-      <Room />
-      <Room />
-      <Room />
+      <div className='text-body1 font-bold mb-6'>객실 종류 4개</div>
+      {roomList.map((room, index) => (
+        <Room
+          key={index}
+          name={room.name}
+          image={room.image}
+          price={room.price}
+          options={room.options}
+        />
+      ))}
     </div>
   );
 }
 
-const Room = () => {
+interface RoomProps {
+  name: string;
+  image: StaticImageData;
+  price: number;
+  options: string[];
+}
+
+const Room = ({ name, image, price, options }: RoomProps) => {
+  const router = useRouter();
+  const formatPrice = formatNumberWithCommas(price);
+
+  const reservation = () => {
+    const answer = confirm('예약화면으로 이동하시겠습니까?').valueOf();
+    if (answer) router.push('/demo/beforeReview');
+    else return;
+  };
+
   return (
     <React.Fragment>
-      <div className='flex flex-row'>
-        <div className='w-2/6 lg:w-1/5'>
-        <Image
-          src={room}
-          alt='객실'
-          placeholder='blur'
-          width={250}
-          height={180}
-          layout='responsive'
-          objectFit='contain'
-        /></div>
+      <div className='flex flex-col sm:flex-row'>
+        <div className='w-full sm:w-2/6 lg:w-1/5'>
+          <Image
+            src={image}
+            alt='객실'
+            placeholder='blur'
+            width={250}
+            height={180}
+            className='rounded-[10px] hover:opacity-80'
+          />
+        </div>
         <div className='flex flex-1 flex-col ml-5'>
-          <div className='text-subTitle font-mid mb-2'>스탠다드 더블룸</div>
+          <div className='text-subTitle font-mid mb-2 mt-2 sm:mt-0'>{name}</div>
           <div className='flex justify-between'>
             <div className='flex flex-col items-start'>
               <div className='w-[94px] flex justify-center items-center text-body3 bg-lightBlue/20 text-lightBlue mb-8 rounded'>
@@ -49,18 +72,18 @@ const Room = () => {
                 ))}
               </ul>
             </div>
-            <div className='flex flex-col md:flex-row items-center'>
+            <div className='flex flex-col md:flex-row items-center justify-end'>
               <div className='flex mr-7 mb-5 md:mb-0'>
-                <div className='text-num3 font-bold mr-1'>127,000</div>
+                <div className='text-num3 font-bold mr-1'>{formatPrice}</div>
                 <div className='text-num3 font-mid'>원</div>
               </div>
               <div className='flex flex-col'>
-                <div className='flex justify-center items-center w-[143px] h-[50px] mb-1 border border-gray04 rounded font-mid'>
-                  장바구니
-                </div>
-                <div className='flex justify-center items-center w-[143px] h-[50px] border border-gray04 rounded font-mid bg-black text-white'>
-                  예약하기
-                </div>
+                <WhiteButton
+                  className='mb-2.5'
+                  onClick={() => alert('상품이 장바구니에 담겼습니다.')}
+                  title='장바구니'
+                />
+                <BlackButton onClick={reservation} title='예약하기' />
               </div>
             </div>
           </div>
