@@ -14,7 +14,7 @@ export default function LeftInfo() {
     <div>
       <div className='grid grid-cols-6 lg:grid-cols-6 gap-1 mb-7 md:mb-0'>
         <Image
-          className='w-full col-span-6 lg:col-span-6'
+          className='w-full col-span-6 lg:col-span-6 hover:opacity-80'
           src={hotel1}
           alt='호텔사진1'
           placeholder='blur'
@@ -25,7 +25,7 @@ export default function LeftInfo() {
         {hotelImgs.map((hotel, index) => (
           <Image
             key={index}
-            className='w-full col-span-1 rounded flex flex-1'
+            className='w-full col-span-1 rounded flex flex-1 hover:opacity-80'
             src={hotel}
             alt={`호텔사진${index + 1}`}
             placeholder='blur'
