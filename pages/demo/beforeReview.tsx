@@ -1,11 +1,11 @@
 import Seo from '@/components/Seo';
-import { BlackButton } from '@/components/detail/Top/global/button';
+import { BlackButton } from '@/components/global/button/BlackButton';
 import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN } from '@/config/constant';
 import { createReservation } from 'api/reservationApi';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { loginCheck } from 'utils/loginCheck';
 
 export default function BeforeReview() {
