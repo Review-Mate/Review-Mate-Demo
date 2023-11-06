@@ -8,7 +8,7 @@ import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
 import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { motion } from 'framer-motion';
-import { BlackButton } from './global/button';
+import { BlackButton } from '../../global/button/BasicButton';
 import { fetchProductData } from 'api/reviewApi';
 import { productId } from '@/data/detail/productData';
 import { ProductDataType } from 'api/types/reviewTypes';
