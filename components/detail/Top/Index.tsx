@@ -6,7 +6,6 @@ import star from '@/public/images/star.png';
 import heartIcon from '@/public/images/heart.svg';
 import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
-import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { motion } from 'framer-motion';
 import { fetchProductData } from 'api/reviewApi';
 import { productId } from '@/data/detail/productData';
@@ -77,7 +76,7 @@ export default function TopInfo() {
           </div>
           <div className='flex'>
             <div className='text-num1 font-bold mr-1'>
-              {formatNumberWithCommas(hotelInfo.price)}
+              {hotelInfo.price.toLocaleString()}
             </div>
             <div className='text-num1 font-bold'>원 ~</div>
           </div>
