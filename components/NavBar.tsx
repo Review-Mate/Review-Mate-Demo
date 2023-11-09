@@ -21,18 +21,22 @@ export default function NavBar() {
           <Image src={logo} alt='로고' width={115} height={40} />
         </Link>
         <div className='flex flex-row mt-5 sm:mt-0'>
-          <div className='mr-7'>
-            <Link href='/demo/pre-trip/reviewList'>리뷰 목록 체험</Link>
-          </div>
-          <div className='mr-7'>
-            <Link href='/demo/reservation'>리뷰 작성 체험</Link>
-          </div>
-          <div className='mr-7'>
-            <Link href='/demo/reservation'>챗봇 체험</Link>
-          </div>
-          <div>
-            <Link href='/guide/startGuide'>개발자 문서</Link>
-          </div>
+          <Link className='mr-7' href='/demo/pre-trip/reviewList'>
+            리뷰 목록 체험
+          </Link>
+          <Link
+            className='mr-7'
+            href={{
+              pathname: '/demo/reservation',
+              query: { destination: '/demo/post-trip/reviewWrite' },
+            }}
+          >
+            리뷰 작성 체험
+          </Link>
+          <Link className='mr-7' href='/demo/during-trip/beforeChatBot'>
+            챗봇 체험
+          </Link>
+          <Link href='/guide/startGuide'>개발자 문서</Link>
         </div>
       </div>
 
