@@ -6,15 +6,17 @@ import { createReservation } from 'api/reservationApi';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { loginCheck } from 'utils/loginCheck';
+import { useLoginContext } from 'context/LoginContext';
 
 export default function BeforeReview() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
+  const { isLogin } = useLoginContext();
+
   useEffect(() => {
-    loginCheck();
-  });
+    if (!isLogin) router.push('/login');
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {

@@ -1,10 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '@/public/images/logo.svg';
-import user from '@/public/images/user.svg';
+import { useLogout } from '@/hooks/useLogout';
+import { useLoginContext } from 'context/LoginContext';
 
 export default function NavBar() {
+  const { isLogin } = useLoginContext();
+  useEffect(() => {
+    console.log('로그인 상태가 변경되었습니다:', isLogin);
+  }, [isLogin]);
+  const { handleLogout } = useLogout();
+
   return (
     <nav className='flex flex-row items-center justify-between mt-5 mb-12'>
       <div className='flex flex-col sm:flex-row sm:items-center'>
@@ -23,10 +30,22 @@ export default function NavBar() {
           <Link href='/guide/startGuide'>개발자 문서</Link>
         </div>
       </div>
-      <Link href='/'>
-        <Image src={user} alt='마이페이지' width={28} height={28} />
+
+      <div>
+        {isLogin ? (
+          <button
+            className='w-16 h-[40px] flex items-center'
+            onClick={() => handleLogout()}
+          >
+            로그아웃
+          </button>
+        ) : (
+          <Link href='/login'>
+            <div className='w-16 h-[40px] flex items-center'>로그인</div>
+          </Link>
+        )}
         <div className='sm:hidden w-1 h-[40px]'></div>
-      </Link>
+      </div>
     </nav>
   );
 }
