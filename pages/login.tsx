@@ -34,7 +34,7 @@ export default function Purchase() {
     <div className='flex flex-col items-center'>
       <Seo title='ReviewMate | Login' />
       <h1 className='text-title font-bold mb-20 mt-11 animate-appear1 opacity-0'>
-        리뷰 작성을 위해 간단한 정보를 입력해주세요
+        리뷰메이트 체험을 위한 간단한 정보를 입력해주세요
       </h1>
       <form
         onSubmit={handleSubmit}
