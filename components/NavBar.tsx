@@ -4,8 +4,10 @@ import React, { useEffect } from 'react';
 import logo from '@/public/images/logo.svg';
 import { useLogout } from '@/hooks/useLogout';
 import { useLoginContext } from 'context/LoginContext';
+import { useRouter } from 'next/router';
 
 export default function NavBar() {
+  const router = useRouter();
   const { isLogin } = useLoginContext();
   useEffect(() => {
     console.log('로그인 상태가 변경되었습니다:', isLogin);
@@ -20,12 +22,15 @@ export default function NavBar() {
         </Link>
         <div className='flex flex-row mt-5 sm:mt-0'>
           <div className='mr-7'>
-            <Link href='/demo/product'>리뷰 목록 체험</Link>
+            <Link href='/demo/pre-trip/reviewList'>리뷰 목록 체험</Link>
           </div>
           <div className='mr-7'>
-            <Link href='/demo/beforeReview'>리뷰 작성 체험</Link>
+            <Link href='/demo/reservation'>리뷰 작성 체험</Link>
           </div>
-          <div className='w-23 md:w-25'>
+          <div className='mr-7'>
+            <Link href='/demo/reservation'>챗봇 체험</Link>
+          </div>
+          <div>
             <Link href='/guide/startGuide'>개발자 문서</Link>
           </div>
         </div>
@@ -35,7 +40,11 @@ export default function NavBar() {
         {isLogin ? (
           <button
             className='w-16 h-[40px] flex items-center'
-            onClick={() => handleLogout()}
+            onClick={() =>
+              handleLogout(() => {
+                router.push('/login');
+              })
+            }
           >
             로그아웃
           </button>

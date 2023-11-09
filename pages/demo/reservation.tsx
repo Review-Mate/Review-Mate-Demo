@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useLoginContext } from 'context/LoginContext';
 
-export default function BeforeReview() {
+export default function Reservation() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -40,7 +40,7 @@ export default function BeforeReview() {
     await createReservation(reservationData);
 
     router.push({
-      pathname: `/demo/review/write`,
+      pathname: `/demo/post-trip/reviewWrite`,
       query: { reservationId: reservationId },
     });
 
