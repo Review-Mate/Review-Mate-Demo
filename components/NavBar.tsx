@@ -22,12 +22,12 @@ export default function NavBar() {
           <div className='mr-7'>
             <Link href='/demo/product'>리뷰 목록 체험</Link>
           </div>
-          <div>
+          <div className='mr-7'>
             <Link href='/demo/beforeReview'>리뷰 작성 체험</Link>
           </div>
-        </div>
-        <div className='w-23 md:w-25'>
-          <Link href='/guide/startGuide'>개발자 문서</Link>
+          <div className='w-23 md:w-25'>
+            <Link href='/guide/startGuide'>개발자 문서</Link>
+          </div>
         </div>
       </div>
 
