@@ -1,14 +1,14 @@
 import Seo from '@/components/Seo';
+import { useLogin } from '@/hooks/useLogin';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-
-type Props = {};
+import React, { useState } from 'react';
 
 //
 // 상품 구매 페이지는 데모를 위해 임시로 만들어둔 페이지입니다.
 //
-export default function Purchase({}: Props) {
+export default function Purchase() {
   const router = useRouter();
+  const login = useLogin();
 
   const [name, setName] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
@@ -27,28 +27,25 @@ export default function Purchase({}: Props) {
     event.preventDefault();
     if (!validationCheck()) return;
 
-    const date = new Date();
-    const token =
-      phoneNum.substring(7, 11) + kakaoId.substring(0, 3) + date.getTime();
-    localStorage.setItem('loginToken', token);
-    localStorage.setItem('name', name);
-    localStorage.setItem('phoneNum', phoneNum);
-    localStorage.setItem('kakaoId', kakaoId);
-
-    router.push('/demo/beforeReview');
+    login(name, phoneNum, kakaoId, () => router.push('/'));
   };
 
   return (
     <div className='flex flex-col items-center'>
       <Seo title='ReviewMate | Login' />
       <h1 className='text-title font-bold mb-20 mt-11 animate-appear1 opacity-0'>
-        리뷰 작성을 위해 간단한 정보를 입력해주세요
+        리뷰메이트 체험을 위한 간단한 정보를 입력해주세요
       </h1>
       <form
         onSubmit={handleSubmit}
         className='border rounded-t-3xl pt-11 p-7 w-3/4'
       >
-        <Input label='이름' value={name} setValue={setName} placeholder='여행러버'/>
+        <Input
+          label='이름'
+          value={name}
+          setValue={setName}
+          placeholder='여행러버'
+        />
         <Input
           label='휴대전화'
           value={phoneNum}
@@ -56,7 +53,12 @@ export default function Purchase({}: Props) {
           type='tel'
           placeholder='01012345678'
         />
-        <Input label='카카오 아이디' value={kakaoId} setValue={setKakaoId} placeholder='카카오 아이디'/>
+        <Input
+          label='카카오 아이디'
+          value={kakaoId}
+          setValue={setKakaoId}
+          placeholder='카카오 아이디'
+        />
         <button type='submit' className='btn-primary mt-7 float-right'>
           로그인
         </button>
