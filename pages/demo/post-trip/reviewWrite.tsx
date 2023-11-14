@@ -17,7 +17,14 @@ export default function WritePage() {
     if (message === 'success') {
       router.push('/demo/product');
     }
-  }, [message, router]);
+    if (reservationId === undefined) {
+      alert('예약id가 없습니다. 예약 단계로 이동합니다.');
+      router.push({
+        pathname: '/demo/reservation',
+        query: { destination: '/demo/post-trip/reviewWrite' },
+      });
+    }
+  }, []);
 
   return (
     <div className='pb-10'>
