@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
 
-export default function Landing_main() {
+export default function StartTrip() {
   return (
     <Fragment>
       <div className='flex flex-col items-center w-auto mb-24 lg:items-start lg:w-1/2 animate-appear1 lg:mb-0'>
