@@ -41,10 +41,10 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        heading: '1.85rem',
-        title: '1.5rem',
-        subTitle: '1.25rem',
-        body1: '1.125rem',
+        heading: '1.85rem', // 30px
+        title: '1.5rem', // 24px
+        subTitle: '1.25rem', // 20px
+        body1: '1.125rem', // 18px
         body2: '1rem',
         body3: '0.875rem',
         caption: '0.8125rem',

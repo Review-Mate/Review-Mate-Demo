@@ -7,7 +7,7 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className='h-full px-[5%] xl:px-[15%] '>
+    <div className='h-full px-[5%] xl:px-[18%] '>
       <NavBar />
       {children}
     </div>
