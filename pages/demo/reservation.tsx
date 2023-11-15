@@ -24,19 +24,20 @@ export default function Reservation() {
   }, []);
 
   useEffect(() => {
-    const reservationId = makeReservation();
+    // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
+    const reservationId = getTempReservationId();
+    makeReservation(reservationId);
     setTimeout(() => {
       destination &&
         router.push({
           pathname: destination.toString(),
-          query: { reservationId: reservationId.toString() },
+          query: { reservationId: reservationId },
         });
     }, 700);
   }, []);
 
-  const makeReservation = async () => {
-    // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
-    const reservationId = getTempReservationId();
+  const makeReservation = async (reservationId: string) => {
+    try{
     const reservationData = new FormData();
 
     const data = getReservationData(reservationId);
@@ -47,14 +48,9 @@ export default function Reservation() {
     );
 
     // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
-    await createReservation(reservationData);
-
-    router.push({
-      pathname: `/demo/post-trip/reviewWrite`,
-      query: { reservationId: reservationId },
-    });
-
-    return reservationId;
+    await createReservation(reservationData);}catch(e){
+      alert('예약에 실패했습니다. 다시 시도해주세요.')
+    }
   };
 
   const getReservationData = (reservationId: string) => {

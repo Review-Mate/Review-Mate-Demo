@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function AfterChatBot() {
   const router = useRouter();
+  const reservationId = router.query.reservationId;
+
   return (
     <div className='w-full flex flex-1 justify-center items-center'>
       <motion.div
@@ -28,7 +30,12 @@ export default function AfterChatBot() {
           <BlackButton
             title='리뷰작성'
             className='mt-8 animate-pulse'
-            onClick={() => router.push('/demo/post-trip/reviewWrite')}
+            onClick={() =>
+              router.push({
+                pathname: '/demo/post-trip/reviewWrite',
+                query: { reservationId: reservationId },
+              })
+            }
           />
         </div>
       </motion.div>
