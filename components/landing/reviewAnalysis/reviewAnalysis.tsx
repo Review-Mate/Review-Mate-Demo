@@ -2,11 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import Middle from './middle';
 import { layoutPaddingStyle } from '@/components/Layout';
+import { landingStyle } from '@/pages/index';
 
 export default function ReviewAnalysis() {
   return (
     <div
-      className={`w-full flex flex-col justify-center items-center py-24 bg-gray06 ${layoutPaddingStyle}`}
+      className={`w-full flex flex-col justify-center items-center ${landingStyle} bg-gray06 ${layoutPaddingStyle}`}
     >
       <h1 className='text-title font-bold mb-4'>
         고객의 의사결정은 완벽한 분석에서 시작됩니다
