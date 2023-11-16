@@ -2,13 +2,16 @@ import Image from 'next/image';
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
+import { layoutPaddingStyle } from '../Layout';
 
 export default function StartTrip() {
   return (
-    <Fragment>
+    <div
+      className={`flex flex-col items-center justify-center w-full py-24 lg:flex-row lg:justify-between ${layoutPaddingStyle}`}
+    >
       <div className='flex flex-col items-center w-auto mb-24 lg:items-start lg:w-1/2 animate-appear1 lg:mb-0'>
-        <h1 className='mb-5 text-4xl font-bold'>여행의 시작은 리뷰로 부터!</h1>
-        <h2 className='text-subTitle text-gray01 mb-14 w-[355px] text-center lg:text-start'>
+        <h1 className='mb-7 text-4xl font-bold'>여행의 시작은 리뷰로 부터!</h1>
+        <h2 className='text-subTitle text-gray01 mb-24 w-[355px] text-center lg:text-start'>
           리뷰메이트와 함께 특별한 여행을 경험한
           <br />
           여행자들의 살아있는 이야기를 소개합니다!
@@ -60,7 +63,7 @@ export default function StartTrip() {
           <ArrowImage rotate={'rotate-180'} />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
@@ -91,11 +94,10 @@ const MainImage = ({ src, alt, title }: MainImageProps) => {
   return (
     <div className='flex flex-col items-center'>
       <Image src={src} alt={alt} width={180} height={125} />
-      <div className='text-body1 text-gray01'>{title}</div>
+      <div className='text-body2 text-gray01'>{title}</div>
     </div>
   );
 };
-
 
 interface LinkBoxProps {
   title: string;

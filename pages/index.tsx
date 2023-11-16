@@ -1,11 +1,13 @@
 import Seo from '@/components/Seo';
-import LandingMain from '@/components/landing/landingMain';
+import ReviewAnalysis from '@/components/landing/reviewAnalysis/reviewAnalysis';
+import StartTrip from '@/components/landing/startTrip';
 
 export default function Home() {
   return (
-    <main className='flex flex-col items-center justify-center w-full pt-12 lg:flex-row lg:justify-between'>
+    <main className='flex flex-col items-center w-[100vw] absolute left-0'>
       <Seo title='ReviewMate|Home' />
-      <LandingMain />
+      <StartTrip />
+      <ReviewAnalysis />
     </main>
   );
 }

@@ -36,7 +36,7 @@ export default function RightInfo({ positiveTags, negativeTags }: Props) {
         </ul>
         <div>
           <TagBox tags={positiveTags} color='blue' title='긍정 태그' />
-          <TagBox tags={negativeTags} color='red' title='부정 태그' />
+          <TagBox tags={negativeTags} color='red01' title='부정 태그' />
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ const TagBox = ({ tags, color, title }: TagBoxProps) => {
     <div className='flex flex-col justify-center p-5 mt-1 bg-gray08 rounded-[10px]'>
       <div
         className={`${
-          color === 'blue' ? 'text-blue' : 'text-red'
+          color === 'blue' ? 'text-blue01' : 'text-red01'
         } mb-2.5 text-body1 font-bold`}
       >
         {title}
@@ -69,7 +69,7 @@ const TagBox = ({ tags, color, title }: TagBoxProps) => {
           <div
             key={index}
             className={`${
-              color === 'blue' ? 'border-blue text-blue' : 'border-red text-red'
+              color === 'blue' ? 'border-blue01 text-blue01' : 'border-red01 text-red01'
             } border py-1 px-2.5 bg-white rounded text-body3 font-mid`}
           >
             {tag.category}
