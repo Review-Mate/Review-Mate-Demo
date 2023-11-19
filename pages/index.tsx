@@ -1,4 +1,6 @@
 import Seo from '@/components/Seo';
+import DuringTrip from '@/components/landing/duringTrip/duringTrip';
+import PostTrip from '@/components/landing/postTrip';
 import PreTrip from '@/components/landing/preTrip';
 import ReviewAnalysis from '@/components/landing/reviewAnalysis/reviewAnalysis';
 import StartTrip from '@/components/landing/startTrip';
@@ -12,6 +14,8 @@ export default function Home() {
       <StartTrip />
       <ReviewAnalysis />
       <PreTrip />
+      <DuringTrip />
+      <PostTrip />
     </main>
   );
 }

@@ -24,7 +24,7 @@ export default function PreTrip() {
               링켄리브 발칸 여행
             </p>
             <div className='flex flex-row items-center gap-3'>
-              <Image src='/images/star.png' alt='별점' width={24} height={24} />
+              <Image src='/images/star.svg' alt='별점' width={24} height={24} />
               <p className='text-title'>4.5</p>
             </div>
           </div>

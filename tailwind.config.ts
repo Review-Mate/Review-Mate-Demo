@@ -19,7 +19,7 @@ const config: Config = {
         lg: '1024px',
       },
       colors: {
-        primary: '#4397AA',
+        primary: '#009AAD',
         green02: '#00AD45',
         purple02: '#9500AD',
         blue02: '#018AD7',
