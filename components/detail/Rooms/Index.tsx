@@ -3,7 +3,7 @@ import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
 import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
-import { BlackButton, WhiteButton } from '../Top/global/button';
+import { BlackButton, WhiteButton } from '../../global/button/BasicButton';
 
 type Props = {};
 
@@ -37,7 +37,7 @@ const Room = ({ name, image, price, options }: RoomProps) => {
 
   const reservation = () => {
     const answer = confirm('예약화면으로 이동하시겠습니까?').valueOf();
-    if (answer) router.push('/demo/beforeReview');
+    if (answer) router.push('/demo/reservation');
     else return;
   };
 

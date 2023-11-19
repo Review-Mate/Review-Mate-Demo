@@ -41,7 +41,7 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        heading: '1.75rem',
+        heading: '1.85rem',
         title: '1.5rem',
         subTitle: '1.25rem',
         body1: '1.125rem',

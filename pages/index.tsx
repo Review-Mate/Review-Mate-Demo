@@ -25,7 +25,7 @@ export default function Home() {
         <LinkBox
           title='리뷰 작성 위젯'
           content='리뷰 작성 페이지 체험하기'
-          link='demo/beforeReview'
+          link='demo/reservation'
           colorBlue={false}
         />
       </div>
