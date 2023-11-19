@@ -13,29 +13,17 @@ export default function WritePage() {
 
   const router = useRouter();
   const reservationId = router.query.reservationId;
-  console.log('reservationId', reservationId);
-
-  const [isReservationId, setIsReservationId] = useState(false);
 
   useEffect(() => {
     if (message === 'success') {
       router.push('/demo/product');
     }
-    setIsReservationId(!!reservationId);
   }, [reservationId]);
 
-  const reservationClick = () => {
-    router.push({
-      pathname: '/demo/reservation',
-      query: { destination: '/demo/post-trip/reviewWrite' },
-    });
-  };
-
-  if (isReservationId)
     return (
       <div className='pb-10'>
         <Seo title='ReviewMate | Write Demo' />
-        <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
+        <h1 className='mb-10 font-bold text-title'>리뷰 작성</h1>
         <WritePageTopInfo />
         <iframe
           name='review-mate-write-widget'
@@ -45,12 +33,4 @@ export default function WritePage() {
         />
       </div>
     );
-  return (
-    <div className='flex flex-col items-center'>
-      <div className='text-body1 mb-5'>
-        예약 아이디가 없습니다. 예약을 다시 시도해주세요.
-      </div>
-      <BlackButton title='예약하기' onClick={reservationClick} />
-    </div>
-  );
 }
