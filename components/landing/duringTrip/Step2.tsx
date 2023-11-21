@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const Step2 = () => {
   return (
-    <div className='w-[370px]'>
+    <div className='w-[320px]'>
       <h3 className='text-subTitle text-[#437B82] font-bold mb-8 text-center'>
         2. 불만, 개선사항 등을 관리인에게 전달
       </h3>
