@@ -5,8 +5,10 @@ import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';
 import { GreenButton } from '@/components/global/button/GreenButton';
+import { useRouter } from 'next/router';
 
 export default function DuringTrip() {
+  const router = useRouter();
   return (
     <div
       className={`w-full flex flex-col justify-center items-center ${landingStyle} bg-[#EFF8FA] ${layoutPaddingStyle}`}
@@ -21,8 +23,13 @@ export default function DuringTrip() {
         <Step2 />
         <Step3 />
       </div>
-      <GreenButton title='챗봇메이트 체험' iconSrc='/icons/pencil.svg' onClick={()=>{}}/>
+      <GreenButton
+        title='챗봇메이트 체험'
+        iconSrc='/icons/chat.svg'
+        onClick={() => {
+          router.push('/demo/during-trip/beforeChatBot');
+        }}
+      />
     </div>
   );
 }
-
