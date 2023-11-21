@@ -16,7 +16,7 @@ export default function WritePage() {
 
   useEffect(() => {
     if (message === 'success') {
-      router.push('/demo/product');
+      router.push('/demo/pre-trip/reviewList');
     }
   }, [reservationId]);
 

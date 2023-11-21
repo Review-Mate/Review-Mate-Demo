@@ -48,9 +48,17 @@ export default function Reservation() {
     );
 
     // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
-    await createReservation(reservationData);}catch(e){
+    await createReservation(reservationData);
+
+    router.replace({
+      pathname: `/demo/post-trip/reviewWrite`,
+      query: { reservationId: reservationId },
+    });
+
+    return reservationId;
+   }catch(e){
       alert('예약에 실패했습니다. 다시 시도해주세요.')
-    }
+   }
   };
 
   const getReservationData = (reservationId: string) => {
