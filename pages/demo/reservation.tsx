@@ -1,32 +1,43 @@
 import Seo from '@/components/Seo';
-import { BlackButton } from '@/components/global/button/BasicButton';
-import WritePageTopInfo from '@/components/write/Top';
 import { PARTNER_DOMAIN } from '@/config/constant';
 import { createReservation } from 'api/reservationApi';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLoginContext } from 'context/LoginContext';
 
 export default function Reservation() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const destination = router.query.destination;
+
+  console.log('destination', destination);
 
   const { isLogin } = useLoginContext();
 
   useEffect(() => {
+    console.log('islogin', isLogin);
     if (!isLogin) router.push('/login');
+    if (destination === undefined) {
+      alert('잘못된 접근입니다.');
+      router.push('/');
+    }
   }, []);
 
   useEffect(() => {
+    // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
+    const reservationId = getTempReservationId();
+    makeReservation(reservationId);
     setTimeout(() => {
-      setLoading(false);
+      destination &&
+        router.push({
+          pathname: destination.toString(),
+          query: { reservationId: reservationId },
+        });
     }, 700);
   }, []);
 
-  const makeReservation = async () => {
-    // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
-    const reservationId = getTempReservationId();
+  const makeReservation = async (reservationId: string) => {
+    try{
     const reservationData = new FormData();
 
     const data = getReservationData(reservationId);
@@ -45,6 +56,9 @@ export default function Reservation() {
     });
 
     return reservationId;
+   }catch(e){
+      alert('예약에 실패했습니다. 다시 시도해주세요.')
+   }
   };
 
   const getReservationData = (reservationId: string) => {
@@ -81,30 +95,14 @@ export default function Reservation() {
   return (
     <div className='flex flex-col items-center pt-8'>
       <Seo title='ReviewMate | Reservation' />
-      {loading && (
-        <>
-          <p className='text-body1  mb-4'>상품 예약 중..</p>
-          <Image
-            src='/images/loading.png'
-            alt='로딩'
-            width={40}
-            height={40}
-            className='animate-spin animate-loading'
-          />
-        </>
-      )}
-      <h1 className='text-title sm:text-heading mt-3 mb-16 font-bold animate-appear4 opacity-0'>
-        구매하신 상품의 리뷰를 남겨주세요!
-      </h1>
-
-      <div className='animate-appear5 opacity-0'>
-        <WritePageTopInfo />
-        <BlackButton
-          title='리뷰작성'
-          onClick={makeReservation}
-          className='btn-primary float-right animate-pulse'
-        />
-      </div>
+      <p className='text-body1  mb-4'>상품 예약 중..</p>
+      <Image
+        src='/images/loading.png'
+        alt='로딩'
+        width={40}
+        height={40}
+        className='animate-spin animate-loading'
+      />
     </div>
   );
 }
