@@ -9,18 +9,15 @@ import { useRouter } from 'next/router';
 export default function NavBar() {
   const router = useRouter();
   const { isLogin } = useLoginContext();
-  useEffect(() => {
-    console.log('로그인 상태가 변경되었습니다:', isLogin);
-  }, [isLogin]);
   const { handleLogout } = useLogout();
 
   return (
     <nav className='flex flex-row items-center justify-between mt-5 mb-12'>
       <div className='flex flex-col sm:flex-row sm:items-center'>
         <Link href='/' className='mr-7'>
-          <Image src={logo} alt='로고' width={115} height={40} />
+          <Image src={logo} alt='로고' width={140} height={65} />
         </Link>
-        <div className='flex flex-row mt-5 sm:mt-0'>
+        {/* <div className='flex flex-row mt-5 sm:mt-0'>
           <Link className='mr-7' href='/demo/pre-trip/reviewList'>
             리뷰 목록 체험
           </Link>
@@ -37,13 +34,12 @@ export default function NavBar() {
             챗봇 체험
           </Link>
           <Link href='/guide/startGuide'>개발자 문서</Link>
-        </div>
+        </div> */}
       </div>
 
-      <div>
+      <div className='flex items-center p-1 px-2 border rounded text-body3 text-primary border-primary'>
         {isLogin ? (
           <button
-            className='w-16 h-[40px] flex items-center'
             onClick={() =>
               handleLogout(() => {
                 router.push('/login');
@@ -54,10 +50,10 @@ export default function NavBar() {
           </button>
         ) : (
           <Link href='/login'>
-            <div className='w-16 h-[40px] flex items-center'>로그인</div>
+            <div>로그인</div>
           </Link>
         )}
-        <div className='sm:hidden w-1 h-[40px]'></div>
+        {/* <div className='sm:hidden w-1 h-[40px]'></div> */}
       </div>
     </nav>
   );
