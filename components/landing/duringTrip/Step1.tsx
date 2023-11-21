@@ -1,11 +1,11 @@
 export const Step1 = () => {
   return (
-    <div className='w-[370px]'>
-      <h3 className='text-subTitle text-[#437B82] font-bold mb-8 text-center'>
+    <div className='w-[320px]'>
+      <h3 className='text-body1 text-[#437B82] font-bold mb-8 text-center'>
         1. 여행객의 만족도 점검
       </h3>
       <div
-        className={`w-[330px] bg-white shadow-lg whitespace-pre-wrap rounded-3xl m-auto`}
+        className={`w-[320px] bg-white shadow-lg whitespace-pre-wrap rounded-3xl m-auto`}
       >
         <div className='py-6 bg-gray06 px-9 rounded-t-3xl text-body1 font-mid'>
           <p>
