@@ -2,8 +2,8 @@ import { MessageBox, TooTip } from './Step2';
 
 export const Step3 = () => {
   return (
-    <div className='flex flex-col items-center w-[320px]'>
-      <h3 className='text-subTitle text-[#437B82] font-bold mb-8 text-center'>
+    <div className='flex flex-col items-center w-[340px]'>
+      <h3 className='text-body1 text-[#437B82] font-bold mb-8 text-center'>
         3. 문제해결여부 확인 및 관리감독 역할 수행
       </h3>
       <div>
