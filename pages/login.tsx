@@ -27,7 +27,7 @@ export default function Purchase() {
     event.preventDefault();
     if (!validationCheck()) return;
 
-    login(name, phoneNum, kakaoId, () => router.push('/'));
+    login(name, phoneNum, kakaoId, () => router.replace('/'));
   };
 
   return (
