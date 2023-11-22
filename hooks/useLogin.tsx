@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { use, useEffect } from 'react';
 
 export const useLogin = () => {
-  const router = useRouter();
   const { setIsLogin, isLogin } = useLoginContext();
   useEffect(() => {
     console.log('로긴', isLogin);
@@ -13,7 +12,7 @@ export const useLogin = () => {
     name: string,
     phoneNum: string,
     kakaoId: string,
-    callback?: () => {}
+    callback?: () => void
   ) => {
     const date = new Date();
     const token =
