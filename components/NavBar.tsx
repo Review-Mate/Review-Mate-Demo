@@ -5,7 +5,7 @@ import logo from '@/public/images/logo.svg';
 import { useLogout } from '@/hooks/useLogout';
 import { useLoginContext } from 'context/LoginContext';
 import { useRouter } from 'next/router';
-import { layoutPaddingStyle } from './Layout';
+import { layoutPaddingStyle, layoutWidth } from './Layout';
 
 export default function NavBar() {
   const router = useRouter();
@@ -13,8 +13,8 @@ export default function NavBar() {
   const { handleLogout } = useLogout();
 
   return (
-    <nav className={`left-0 fixed w-full bg-white z-10 ${layoutPaddingStyle}`}>
-      <div className='flex flex-row items-center justify-between my-5'>
+    <nav className={`left-0 fixed w-full bg-white z-10`}>
+      <div className={`flex flex-row items-center justify-between my-5 ${layoutWidth}`}>
         <div className='flex flex-col sm:flex-row sm:items-center'>
           <Link href='/' className='mr-7'>
             <Image src={logo} alt='로고' width={140} height={65} />
