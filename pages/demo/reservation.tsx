@@ -10,55 +10,52 @@ export default function Reservation() {
   const router = useRouter();
   const destination = router.query.destination;
 
-  console.log('destination', destination);
-
   const { isLogin } = useLoginContext();
 
   useEffect(() => {
-    console.log('islogin', isLogin);
-    if (!isLogin) router.push('/login');
     if (destination === undefined) {
       alert('잘못된 접근입니다.');
       router.push('/');
+    } else if (!isLogin) {
+      alert('로그인 후 이용 가능합니다.');
+      router.push({
+        pathname: '/login',
+        query: { destination: destination, route: '/demo/reservation' },
+      });
+    } else {
+      startReservation();
     }
   }, []);
 
-  useEffect(() => {
+  const startReservation = async () => {
     // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
-    const reservationId = getTempReservationId();
-    makeReservation(reservationId);
     setTimeout(() => {
+      const reservationId = getTempReservationId();
+      makeReservation(reservationId);
       destination &&
-        router.push({
-          pathname: destination.toString(),
-          query: { reservationId: reservationId },
-        });
+      router.push({
+        pathname: destination.toString(),
+        query: { reservationId: reservationId },
+      });
     }, 700);
-  }, []);
+  };
 
   const makeReservation = async (reservationId: string) => {
-    try{
-    const reservationData = new FormData();
+    try {
+      const reservationData = new FormData();
 
-    const data = getReservationData(reservationId);
+      const data = getReservationData(reservationId);
 
-    reservationData.append(
-      'singleTravelReservationCreateRequest',
-      new Blob([JSON.stringify(data)], { type: 'application/json' })
-    );
+      reservationData.append(
+        'singleTravelReservationCreateRequest',
+        new Blob([JSON.stringify(data)], { type: 'application/json' })
+      );
 
-    // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
-    await createReservation(reservationData);
-
-    router.replace({
-      pathname: `/demo/post-trip/reviewWrite`,
-      query: { reservationId: reservationId },
-    });
-
-    return reservationId;
-   }catch(e){
-      alert('예약에 실패했습니다. 다시 시도해주세요.')
-   }
+      // 데모를 위한 예약 API일 뿐, 실제 파트너사에서는 리뷰메이트 api를 사용하지 않습니다.
+      await createReservation(reservationData);
+    } catch (e) {
+      alert('예약에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   const getReservationData = (reservationId: string) => {

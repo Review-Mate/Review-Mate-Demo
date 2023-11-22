@@ -8,6 +8,8 @@ import React, { useState } from 'react';
 //
 export default function Purchase() {
   const router = useRouter();
+  const route = router.query.route;
+  const destination = router.query.destination;
   const login = useLogin();
 
   const [name, setName] = useState('');
@@ -27,7 +29,15 @@ export default function Purchase() {
     event.preventDefault();
     if (!validationCheck()) return;
 
-    login(name, phoneNum, kakaoId, () => router.replace('/'));
+    login(name, phoneNum, kakaoId, () => {
+      if (destination && route)
+        router.push({
+          pathname: route.toString(),
+          query: { destination: destination.toString() },
+        });
+      else
+      router.push('/');
+    });
   };
 
   return (

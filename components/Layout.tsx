@@ -6,12 +6,15 @@ interface Props {
 }
 
 export const layoutPaddingStyle = 'px-[5%] xl:px-[18%]';
+export const layoutWidth = 'sm:w-[600px] md:w-[700px] lg:w-[1100px] mx-auto px-[10px]';
 
 export default function Layout({ children }: Props) {
   return (
-    <div className={`h-full ${layoutPaddingStyle}`}>
-      <NavBar />
-      {children}
-    </div>
+    <>
+      <div className={`h-full ${layoutWidth}`}>
+        <NavBar />
+        <div className='pt-[130px]'>{children}</div>
+      </div>
+    </>
   );
 }
