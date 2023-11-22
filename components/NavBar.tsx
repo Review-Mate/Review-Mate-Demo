@@ -14,7 +14,9 @@ export default function NavBar() {
 
   return (
     <nav className={`left-0 fixed w-full bg-white z-10`}>
-      <div className={`flex flex-row items-center justify-between my-5 ${layoutWidth}`}>
+      <div
+        className={`flex flex-row items-center justify-between my-5 ${layoutWidth}`}
+      >
         <div className='flex flex-col sm:flex-row sm:items-center'>
           <Link href='/' className='mr-7'>
             <Image src={logo} alt='로고' width={140} height={65} />
@@ -23,7 +25,7 @@ export default function NavBar() {
             <Link className='mr-7' href='/demo/pre-trip/reviewList'>
               리뷰 목록 체험
             </Link>
-            <Link className='mr-7' href='/demo/during-trip/beforeChatBot'>
+            <Link className='mr-7' href='/demo/during-trip/chatBot'>
               챗봇 체험
             </Link>
             <Link
