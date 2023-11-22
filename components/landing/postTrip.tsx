@@ -10,8 +10,8 @@ import { flexCol } from '@/styles/styleUtils';
 export default function PostTrip() {
   const router = useRouter();
   return (
-    <div className={`relative xl:h-[1225px] w-full ${landingStyle}`}>
-      <Line title='여행 후' iconSrc='/icons/line5.svg' top={'top-[540px]'} />
+    <div className={`relative xl:h-[1280px] w-full ${landingStyle}`}>
+      <Line title='여행 후' iconSrc='/icons/line5.svg' top={'top-[567px]'} />
       <div className={`${layoutWidth}  ${flexCol}`}>
         <div className='flex flex-row items-center justify-center gap-16'>
           <div>

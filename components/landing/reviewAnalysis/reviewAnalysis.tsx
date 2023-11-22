@@ -9,12 +9,12 @@ import { flexCol } from '@/styles/styleUtils';
 export default function ReviewAnalysis() {
   return (
     <div
-      className={`relative xl:h-[840px] w-full ${landingStyle} bg-[#F9F9F9]`}
+      className={`relative xl:h-[900px] w-full ${landingStyle} bg-[#F9F9F9]`}
     >
       <Line
         title='완벽한 리뷰분석'
         iconSrc='/icons/line2.svg'
-        top={'top-[355px]'}
+        top={'top-[385px]'}
       />
       <div className={`${layoutWidth}  ${flexCol}`}>
         <h1 className='text-title font-bold mb-4'>

@@ -8,15 +8,15 @@ import { flexCol } from '@/styles/styleUtils';
 
 export default function StartTrip() {
   return (
-    <div
-      className={`relative xl:h-[720px] w-full`}
-    >
+    <div className={`relative xl:h-[720px] w-full py-16`}>
       <Line
         title='여행의 시작'
         iconSrc='/icons/line1.svg'
         top={'top-[225px]'}
       />
-      <div className={`${layoutWidth} ${flexCol} lg:flex-row lg:justify-between`}>
+      <div
+        className={`${layoutWidth} ${flexCol} lg:flex-row lg:justify-between`}
+      >
         <div className='flex flex-col items-center w-auto mb-24 lg:items-start lg:w-1/2 animate-appear1 lg:mb-0'>
           <h1 className='mb-7 text-4xl font-bold'>
             여행의 시작은 리뷰로 부터!
