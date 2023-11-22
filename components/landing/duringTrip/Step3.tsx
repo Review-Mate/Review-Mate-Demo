@@ -2,9 +2,9 @@ import { MessageBox, TooTip } from './Step2';
 
 export const Step3 = () => {
   return (
-    <div className='flex flex-col items-center w-[370px]'>
-      <h3 className='text-subTitle text-[#437B82] font-bold mb-8 text-center'>
-        3. 문제해결여부 확인 및 관리감독 역할 수행
+    <div className='flex flex-col items-center w-[310px]'>
+      <h3 className='text-body1 text-[#437B82] font-bold mb-8 text-center'>
+        3. 문제해결여부 확인 및 관리감독 역할
       </h3>
       <div>
         <div className='flex flex-col float-left gap-5'>
@@ -30,4 +30,4 @@ export const serviceMessage = `혹시 불만 사항이나 건의사항이 있으
 드릴께요.`;
 
 export const grayButtonStyle =
-  'bg-gray06 text-gray01 w-full font-mid py-3 rounded-lg text-center';
+  'bg-gray06 w-full font-mid py-3 rounded-lg text-center';

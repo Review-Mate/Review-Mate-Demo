@@ -2,35 +2,16 @@ import Image from 'next/image';
 
 export const Step2 = () => {
   return (
-    <div className='w-[370px]'>
-      <h3 className='text-subTitle text-[#437B82] font-bold mb-8 text-center'>
+    <div className='w-[310px]'>
+      <h3 className='text-body1 text-[#437B82] font-bold mb-8 text-center'>
         2. 불만, 개선사항 등을 관리인에게 전달
       </h3>
       <div className={`w-full flex flex-col gap-5`}>
         <TooTip>이번 상품은 어떠셨나요?</TooTip>
         <div className='flex flex-row w-full gap-1'>
-          <MessageBox>
-            <StarImage />
-          </MessageBox>
-          <MessageBox>
-            <StarImage />
-            <StarImage />
-          </MessageBox>
-          <MessageBox>
-            {[1, 2, 3].map((idx) => {
-              return <StarImage key={idx} />;
-            })}
-          </MessageBox>
-          <MessageBox>
-            {[1, 2, 3, 4].map((idx) => {
-              return <StarImage key={idx} />;
-            })}
-          </MessageBox>
-          <MessageBox>
-            {[1, 2, 3, 4, 5].map((idx) => {
-              return <StarImage key={idx} />;
-            })}
-          </MessageBox>
+          {[1, 2, 3, 4, 5].map((idx) => (
+            <StarButton key={idx} num={idx} />
+          ))}
         </div>
         <TooTip right>
           <div className='flex flex-row gap-1'>
@@ -107,4 +88,19 @@ export const MessageBox = ({ children }: MessageBoxProps) => {
 
 const StarImage = ({ size = 15 }: { size?: number }) => {
   return <Image src='/images/star.svg' alt='별점' width={size} height={size} />;
+};
+
+const StarButton = ({ num = 1 }: { num: number }) => {
+  let stars = Array.from({ length: num }, (_, idx) => idx + 1);
+  return (
+    <>
+      {
+        <MessageBox>
+          {stars.map((idx) => {
+            return <StarImage key={idx} />;
+          })}
+        </MessageBox>
+      }
+    </>
+  );
 };
