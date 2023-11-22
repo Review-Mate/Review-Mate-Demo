@@ -3,12 +3,15 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 import arrow from '@/public/images/arrow.svg';
 import { layoutPaddingStyle } from '../Layout';
+import { Line } from './line';
 
 export default function StartTrip() {
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full py-24 lg:flex-row lg:justify-between ${layoutPaddingStyle}`}
+      className={`relative xl:h-[720px] flex flex-col items-center justify-center w-full lg:flex-row lg:justify-between ${layoutPaddingStyle}`}
     >
+      <Line title='여행의 시작' iconSrc='/icons/line1.svg' top={'top-[225px]'} />
+
       <div className='flex flex-col items-center w-auto mb-24 lg:items-start lg:w-1/2 animate-appear1 lg:mb-0'>
         <h1 className='mb-7 text-4xl font-bold'>여행의 시작은 리뷰로 부터!</h1>
         <h2 className='text-subTitle text-gray01 mb-24 w-[355px] text-center lg:text-start'>
@@ -16,17 +19,6 @@ export default function StartTrip() {
           <br />
           여행자들의 살아있는 이야기를 소개합니다!
         </h2>
-        {/* <LinkBox
-          title='리뷰 목록 위젯'
-          content='상품 상세 페이지 체험하기'
-          link='/demo/product'
-        />
-        <LinkBox
-          title='리뷰 작성 위젯'
-          content='리뷰 작성 페이지 체험하기'
-          link='demo/reservation'
-          colorBlue={false}
-        /> */}
         <Image
           src='/images/luggage.svg'
           alt='여행가방 이미지'

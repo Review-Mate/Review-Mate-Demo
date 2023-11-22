@@ -3,12 +3,18 @@ import React from 'react';
 import Middle from './middle';
 import { layoutPaddingStyle } from '@/components/Layout';
 import { landingStyle } from '@/pages/index';
+import { Line } from '../line';
 
 export default function ReviewAnalysis() {
   return (
     <div
-      className={`w-full flex flex-col justify-center items-center ${landingStyle} bg-[#F9F9F9] ${layoutPaddingStyle}`}
+      className={`relative xl:h-[840px] w-full flex flex-col justify-center items-center ${landingStyle} bg-[#F9F9F9] ${layoutPaddingStyle}`}
     >
+      <Line
+        title='완벽한 리뷰분석'
+        iconSrc='/icons/line2.svg'
+        top={'top-[355px]'}
+      />
       <h1 className='text-title font-bold mb-4'>
         고객의 의사결정은 완벽한 분석에서 시작됩니다
       </h1>

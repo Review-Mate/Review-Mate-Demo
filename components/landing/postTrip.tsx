@@ -4,13 +4,15 @@ import React from 'react';
 import { layoutPaddingStyle } from '../Layout';
 import { GreenButton } from '../global/button/GreenButton';
 import { useRouter } from 'next/router';
+import { Line } from './line';
 
 export default function PostTrip() {
   const router = useRouter();
   return (
     <div
-      className={`w-full flex flex-col justify-center items-center ${landingStyle}  ${layoutPaddingStyle}`}
+      className={`relative xl:h-[1225px] w-full flex flex-col justify-center items-center ${landingStyle}  ${layoutPaddingStyle}`}
     >
+      <Line title='여행 후' iconSrc='/icons/line5.svg' top={'top-[540px]'} />
       <div className='flex flex-row items-center justify-center gap-16'>
         <div>
           <h1 className='mb-4 font-bold text-title'>

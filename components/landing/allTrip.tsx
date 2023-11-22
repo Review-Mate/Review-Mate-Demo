@@ -2,15 +2,18 @@ import { landingStyle } from '@/pages/index';
 import Image from 'next/image';
 import React from 'react';
 import { layoutPaddingStyle } from '../Layout';
-import { GreenButton } from '../global/button/GreenButton';
-import { useRouter } from 'next/router';
+import { Line } from './line';
 
 export default function AllTrip() {
-  const router = useRouter();
   return (
     <div
-      className={`w-full bg-[#f9f9f9] flex flex-col justify-center items-center ${landingStyle}  ${layoutPaddingStyle}`}
+      className={`relative xl:h-[805px] w-full bg-[#f9f9f9] flex flex-col justify-center items-center ${landingStyle}  ${layoutPaddingStyle}`}
     >
+      <Line
+        title='여행의 모든 것'
+        iconSrc='/icons/line6.svg'
+        top={'top-[333px]'}
+      />
       <h2 className='text-body2 text-gray01'>고객들이 알고 싶어하는 리뷰</h2>
       <h1 className='mt-4 font-bold text-title mb-12'>
         리뷰관리가 여행상품의 힘이 됩니다
