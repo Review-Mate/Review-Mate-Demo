@@ -28,7 +28,7 @@ export default function PostTrip() {
             width={110}
             height={110}
           />
-          <p className='mt-2 text-left whitespace-pre-line font-mid text-subTitle text-gray01'>
+          <p className='mt-2 text-left whitespace-pre-line font-mid text-subTitle'>
             {alertMessage}
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function PostTrip() {
         쉽고 편리한 AI 리뷰 작성 도우미
       </h1>
       <h2 className='mb-12 text-center text-body2 text-gray01'>
-        여행을 길고 자세하게 기록할 수 있도록 도와드리고 있습니다.
+        여행을 길고 자세하게 기록할 수 있도록 돕습니다.
       </h2>
       <Image
         src='/images/reviewWriteView.png'
