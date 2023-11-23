@@ -13,7 +13,7 @@ export default function Layout({ children }: Props) {
     <>
       <div className={`h-full ${layoutWidth}`}>
         <NavBar />
-        <div className='pt-[130px]'>{children}</div>
+        <div className='pt-[100px]'>{children}</div>
       </div>
     </>
   );
