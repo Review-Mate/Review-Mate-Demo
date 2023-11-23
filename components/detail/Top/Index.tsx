@@ -11,6 +11,7 @@ import { fetchProductData } from 'api/reviewApi';
 import { productId } from '@/data/detail/productData';
 import { ProductDataType } from 'api/types/reviewTypes';
 import { BlackButton } from '@/components/global/button/BlackButton';
+import { negativeTags, positiveTags } from '@/data/detail/tagData';
 
 export default function TopInfo() {
   const [productData, setProductData] = useState<ProductDataType | null>(null);
@@ -49,8 +50,8 @@ export default function TopInfo() {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         <LeftInfo />
         <RightInfo
-          positiveTags={productData?.positiveTags || []}
-          negativeTags={productData?.negativeTags || []}
+          positiveTags={positiveTags || []}
+          negativeTags={negativeTags || []}
         />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
