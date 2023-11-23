@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-interface ButtonProps {
+export interface ButtonProps {
   title: string;
   width?: number;
   height?: number;
@@ -27,38 +27,4 @@ export const Button = ({
   );
 };
 
-export const WhiteButton = ({
-  title,
-  onClick,
-  width,
-  height,
-  className,
-}: ButtonProps) => {
-  return (
-    <Button
-      title={title}
-      onClick={onClick}
-      width={width}
-      height={height}
-      className={`${className} border border-gray04 bg-white text-black hover:bg-gray-50`}
-    />
-  );
-};
 
-export const BlackButton = ({
-  title,
-  onClick,
-  width,
-  height,
-  className,
-}: ButtonProps) => {
-  return (
-    <Button
-      title={title}
-      onClick={onClick}
-      width={width}
-      height={height}
-      className={`${className} border border-black bg-black text-white`}
-    />
-  );
-};
