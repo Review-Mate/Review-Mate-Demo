@@ -15,14 +15,14 @@ export default function WritePage() {
 
   useEffect(() => {
     if (message === 'success') {
-      router.push('/demo/product');
+      router.push('/demo/pre-trip/reviewList');
     }
-  }, [message, router]);
+  }, [reservationId, message]);
 
   return (
     <div className='pb-10'>
       <Seo title='ReviewMate | Write Demo' />
-      <h1 className='text-title font-bold mb-10'>리뷰 작성</h1>
+      <h1 className='mb-10 font-bold text-title'>리뷰 작성</h1>
       <WritePageTopInfo />
       <iframe
         name='review-mate-write-widget'

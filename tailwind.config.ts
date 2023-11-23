@@ -19,9 +19,13 @@ const config: Config = {
         lg: '1024px',
       },
       colors: {
-        primary: '#4397AA',
-        red: '#EF6961',
-        blue: '#4AA4B9',
+        primary: '#009AAD',
+        green02: '#00AD45',
+        purple02: '#9500AD',
+        blue02: '#018AD7',
+        red02: '#E50101',
+        red01: '#EF6961',
+        blue01: '#4AA4B9',
         lightBlue: '#00A7BD',
         gray01: '#666666',
         gray02: '#999999',
@@ -41,11 +45,11 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        heading: '1.75rem',
-        title: '1.5rem',
-        subTitle: '1.25rem',
-        body1: '1.125rem',
-        body2: '1rem',
+        heading: '1.85rem', // 30px
+        title: '1.5rem', // 24px
+        subTitle: '1.25rem', // 20px
+        body1: '1.125rem', // 18px
+        body2: '1rem', // 16px
         body3: '0.875rem',
         caption: '0.8125rem',
         num1: '1.875rem',

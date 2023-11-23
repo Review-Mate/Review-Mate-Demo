@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import LeftInfo from './LeftInfo';
 import RightInfo from './RightInfo';
-import star from '@/public/images/star.png';
+import star from '@/public/images/star.svg';
 import heartIcon from '@/public/images/heart.svg';
 import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
