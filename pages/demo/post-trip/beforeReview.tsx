@@ -1,5 +1,5 @@
 import Seo from '@/components/Seo';
-import { BlackButton } from '@/components/global/button/BasicButton';
+import { BlackButton } from '@/components/global/button/BlackButton';
 import WritePageTopInfo from '@/components/write/Top';
 import { useRouter } from 'next/router';
 import React from 'react';
