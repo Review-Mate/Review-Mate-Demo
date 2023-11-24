@@ -9,14 +9,16 @@ import { useLoginContext } from 'context/LoginContext';
 export default function Reservation() {
   const router = useRouter();
   const destination = router.query.destination;
+  console.log(router);
 
   const { isLogin } = useLoginContext();
 
   useEffect(() => {
-    if (destination === undefined) {
+    if (router.isReady && destination === undefined) {
       alert('잘못된 접근입니다.');
       router.push('/');
-    } else if (!isLogin) {
+      console.log(destination, 'destination');
+    } else if (isLogin !== undefined && !isLogin) {
       alert('로그인 후 이용 가능합니다.');
       router.push({
         pathname: '/login',
@@ -25,7 +27,7 @@ export default function Reservation() {
     } else {
       startReservation();
     }
-  }, []);
+  }, [router.isReady, router.query.destination]);
 
   const startReservation = async () => {
     // 상품구매(예약)는 데모를 위해 임시로 만들어둔 기능이기 때문에, 예약id를 랜덤으로 생성합니다.
@@ -33,10 +35,10 @@ export default function Reservation() {
       const reservationId = getTempReservationId();
       makeReservation(reservationId);
       destination &&
-      router.push({
-        pathname: destination.toString(),
-        query: { reservationId: reservationId },
-      });
+        router.push({
+          pathname: destination.toString(),
+          query: { reservationId: reservationId },
+        });
     }, 700);
   };
 

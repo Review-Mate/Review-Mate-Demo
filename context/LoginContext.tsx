@@ -9,19 +9,19 @@ import {
 } from 'react';
 
 interface LoginContextType {
-  isLogin: boolean;
-  setIsLogin: Dispatch<SetStateAction<boolean>>;
+  isLogin: boolean | undefined;
+  setIsLogin: Dispatch<SetStateAction<boolean | undefined>>;
 }
 
 const LoginContext = createContext<LoginContextType>({
-  isLogin: false,
+  isLogin: undefined,
   setIsLogin: () => {},
 });
 
 export const useLoginContext = () => useContext(LoginContext);
 
 export const LoginProvider = ({ children }: { children: ReactNode }) => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     const token = localStorage.getItem('loginToken');
