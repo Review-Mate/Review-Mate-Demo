@@ -35,8 +35,7 @@ export default function Purchase() {
           pathname: route.toString(),
           query: { destination: destination.toString() },
         });
-      else
-      router.push('/');
+      else router.back();
     });
   };
 

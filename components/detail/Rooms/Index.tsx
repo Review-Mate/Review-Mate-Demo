@@ -2,8 +2,8 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import { roomList } from '@/data/detail/roomData';
 import { useRouter } from 'next/router';
-import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
-import { BlackButton, WhiteButton } from '../../global/button/BasicButton';
+import { WhiteButton } from '@/components/global/button/WhiteButton';
+import { BlackButton } from '@/components/global/button/BlackButton';
 
 type Props = {};
 
@@ -33,7 +33,7 @@ interface RoomProps {
 
 const Room = ({ name, image, price, options }: RoomProps) => {
   const router = useRouter();
-  const formatPrice = formatNumberWithCommas(price);
+  const formatPrice = price.toLocaleString();
 
   const reservation = () => {
     const answer = confirm('예약화면으로 이동하시겠습니까?').valueOf();

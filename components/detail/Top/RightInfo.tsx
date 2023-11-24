@@ -69,7 +69,9 @@ const TagBox = ({ tags, color, title }: TagBoxProps) => {
           <div
             key={index}
             className={`${
-              color === 'blue' ? 'border-blue01 text-blue01' : 'border-red01 text-red01'
+              color === 'blue'
+                ? 'border-blue01 text-blue01'
+                : 'border-red01 text-red01'
             } border py-1 px-2.5 bg-white rounded text-body3 font-mid`}
           >
             {tag.category}

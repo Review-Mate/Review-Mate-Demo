@@ -6,12 +6,12 @@ import star from '@/public/images/star.svg';
 import heartIcon from '@/public/images/heart.svg';
 import heartFillIcon from '@/public/images/heart_fill.svg';
 import { hotelInfo } from '@/data/detail/hotelData';
-import { formatNumberWithCommas } from 'utils/formatNumberWithCommas';
 import { motion } from 'framer-motion';
-import { BlackButton } from '../../global/button/BasicButton';
 import { fetchProductData } from 'api/reviewApi';
 import { productId } from '@/data/detail/productData';
 import { ProductDataType } from 'api/types/reviewTypes';
+import { BlackButton } from '@/components/global/button/BlackButton';
+import { negativeTags, positiveTags } from '@/data/detail/tagData';
 
 export default function TopInfo() {
   const [productData, setProductData] = useState<ProductDataType | null>(null);
@@ -25,7 +25,6 @@ export default function TopInfo() {
     async function fetchData() {
       const data = await fetchProductData(productId); // userId를 원하는 값으로 수정
       setProductData(data);
-      console.log(data);
     }
 
     fetchData();
@@ -50,8 +49,8 @@ export default function TopInfo() {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
         <LeftInfo />
         <RightInfo
-          positiveTags={productData?.positiveTags || []}
-          negativeTags={productData?.negativeTags || []}
+          positiveTags={positiveTags || []}
+          negativeTags={negativeTags || []}
         />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -77,7 +76,7 @@ export default function TopInfo() {
           </div>
           <div className='flex'>
             <div className='text-num1 font-bold mr-1'>
-              {formatNumberWithCommas(hotelInfo.price)}
+              {hotelInfo.price.toLocaleString()}
             </div>
             <div className='text-num1 font-bold'>원 ~</div>
           </div>
