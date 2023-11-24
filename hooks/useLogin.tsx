@@ -4,10 +4,6 @@ import { use, useEffect } from 'react';
 
 export const useLogin = () => {
   const { setIsLogin, isLogin } = useLoginContext();
-  useEffect(() => {
-    console.log('로긴', isLogin);
-  }, [isLogin]);
-
   const login = (
     name: string,
     phoneNum: string,

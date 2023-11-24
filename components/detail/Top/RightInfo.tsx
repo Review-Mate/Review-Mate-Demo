@@ -15,7 +15,6 @@ interface Props {
 }
 
 export default function RightInfo({ positiveTags, negativeTags }: Props) {
-  console.log(positiveTags, negativeTags);
   return (
     <div>
       <div className='flex flex-col justify-end h-full'>
