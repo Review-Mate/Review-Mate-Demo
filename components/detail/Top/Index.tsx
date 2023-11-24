@@ -25,7 +25,6 @@ export default function TopInfo() {
     async function fetchData() {
       const data = await fetchProductData(productId); // userId를 원하는 값으로 수정
       setProductData(data);
-      console.log(data);
     }
 
     fetchData();
