@@ -17,7 +17,6 @@ export default function Reservation() {
     if (router.isReady && destination === undefined) {
       alert('잘못된 접근입니다.');
       router.push('/');
-      console.log(destination, 'destination');
     } else if (isLogin !== undefined && !isLogin) {
       alert('로그인 후 이용 가능합니다.');
       router.push({
