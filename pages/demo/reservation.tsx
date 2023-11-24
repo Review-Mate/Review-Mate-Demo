@@ -21,7 +21,7 @@ export default function Reservation() {
     } else {
       startReservation();
     }
-  }, [router.isReady, router.query.destination]);
+  }, [router.isReady, destination]);
 
   const handleInvalidAccess = () => {
     alert('잘못된 접근입니다.');
