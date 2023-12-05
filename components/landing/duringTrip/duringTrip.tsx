@@ -1,6 +1,6 @@
 import { landingStyle } from '@/pages/index';
 import React from 'react';
-import { layoutPaddingStyle, layoutWidth } from '../../Layout';
+import { layoutWidth } from '../../Layout';
 import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';

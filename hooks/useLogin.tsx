@@ -1,9 +1,8 @@
 import { useLoginContext } from 'context/LoginContext';
-import { useRouter } from 'next/router';
-import { use, useEffect } from 'react';
 
 export const useLogin = () => {
   const { setIsLogin, isLogin } = useLoginContext();
+  
   const login = (
     name: string,
     phoneNum: string,

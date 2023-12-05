@@ -20,7 +20,8 @@ export default function Product({}: Props) {
         ref={iframeRef}
         src={`${process.env.NEXT_PUBLIC_WIDGET_URL}/review/list?partner_domain=${PARTNER_DOMAIN}&product_id=${PRODUCT_ID}`}
         width='100%'
-        scrolling='no'
+        style={{ overflow: 'hidden' }}
+        // scrolling='no'
       />
     </div>
   );
