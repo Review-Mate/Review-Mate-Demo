@@ -36,8 +36,12 @@ const Room = ({ name, image, price, options }: RoomProps) => {
   const formatPrice = price.toLocaleString();
 
   const reservation = () => {
-    const answer = confirm('예약화면으로 이동하시겠습니까?').valueOf();
-    if (answer) router.push('/demo/reservation');
+    const answer = confirm('예약 후 리뷰 작성 페이지로 이동합니다.').valueOf();
+    if (answer)
+      router.push({
+        pathname: '/demo/reservation',
+        query: { destination: '/demo/post-trip/reviewWrite' },
+      });
     else return;
   };
 

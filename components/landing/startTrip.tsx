@@ -27,7 +27,7 @@ export default function StartTrip() {
             여행자들의 살아있는 이야기를 소개합니다!
           </h2>
           <Image
-            src='/images/luggage.svg'
+            src='/images/luggage.webp'
             alt='여행가방 이미지'
             width={440}
             height={330}
@@ -37,25 +37,25 @@ export default function StartTrip() {
           <div className='grid grid-cols-3 grid-rows-3 gap-x-8 place-items-center'>
             <ArrowImage rotate={'rotate-0'} />
             <MainImage
-              src={'/images/circle_image_1.png'}
+              src={'/images/circle_image_1.webp'}
               alt={'키워드 분석 이미지'}
               title={'리뷰 키워드 분석'}
             />
             <ArrowImage rotate={'rotate-90'} />
             <MainImage
-              src={'/images/circle_image_2.png'}
+              src={'/images/circle_image_2.webp'}
               alt={'리뷰 긍·부정 분석 이미지'}
               title='리뷰 긍·부정 분석'
             />
             <div />
             <MainImage
-              src={'/images/circle_image_4.png'}
+              src={'/images/circle_image_4.webp'}
               alt={'리뷰 작성 보조 이미지'}
               title='리뷰 작성 보조'
             />
             <ArrowImage rotate={'-rotate-90'} />
             <MainImage
-              src={'/images/circle_image_3.png'}
+              src={'/images/circle_image_3.webp'}
               alt={'여행객 피드백 대응 이미지'}
               title='여행객 피드백 대응'
             />
@@ -96,30 +96,5 @@ const MainImage = ({ src, alt, title }: MainImageProps) => {
       <Image src={src} alt={alt} width={180} height={125} />
       <div className='text-body2 text-gray01'>{title}</div>
     </div>
-  );
-};
-
-interface LinkBoxProps {
-  title: string;
-  content: string;
-  link: string;
-  colorBlue?: boolean;
-}
-
-const LinkBox = ({ title, content, link, colorBlue = true }: LinkBoxProps) => {
-  const defaultClass =
-    'w-[370px] sm:w-[420px] h-[75px] flex justify-between items-center h-25 mb-5 px-6 text-black rounded-md';
-  const linkBox = colorBlue
-    ? `${defaultClass} bg-lightBlue hover:bg-gradient-to-tr from-[#009AAD] to-[#00B0C7]`
-    : `${defaultClass} bg-white border border-solid border-gray04 hover:bg-gradient-to-tr from-white to-[#f9f9f9]`;
-
-  return (
-    <Link href={link} className={linkBox}>
-      <div className='flex flex-col items-start'>
-        <p className='text-body font-bold mb-[2px]'>{title}</p>
-        <p className='text-body'>{content}</p>
-      </div>
-      <Image src={arrow} alt='화살표' width={27} height={27} />
-    </Link>
   );
 };
